@@ -48,8 +48,12 @@ add_action( 'after_setup_theme', 'wpc_online_theme_setup' );
  */
 function wpc_online_enqueue_styles_scripts() {
 
+	// Register our fonts
+	// @TODO make sure we remove what we're not using
+	wp_register_style( 'wpc-online-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600' );
+
 	// Add our main stylesheet
-	wp_enqueue_style( 'wpc-online', get_stylesheet_directory_uri() . '/assets/css/styles.css' );
+	wp_enqueue_style( 'wpc-online', get_stylesheet_directory_uri() . '/assets/css/styles.css', array( 'wpc-online-fonts' ) );
 
 }
 add_action( 'wp_enqueue_scripts', 'wpc_online_enqueue_styles_scripts' );

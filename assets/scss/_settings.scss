@@ -2,3 +2,27 @@
 @import "normalize";
 @import "bourbon";
 @import "neat";
+
+// Colors
+$wpc-royal-blue: #1159bd;
+$wpc-bg: #fff;
+$wpc-border-color: rgba( 0, 0, 0, 0.1 );
+
+// Typography
+$wpc-font-primary: 'Libre Franklin', sans-serif; // Libre Franklin', 'Titillium Web', 'Roboto'
+
+$wpc-color: #222;
+
+// Nav settings
+$wpc-nav-desktop-width: 350px;
+$wpc-nav-desktop-vert-padding: 30px;
+$wpc-nav-desktop-horiz-padding: 40px;
+
+$wpc-nav-social-icon-height: 20px;
+
+// Main settings
+$wpc-main-desktop-padding: 40px;
+
+// Footer settings
+$wpc-footer-opacity: 0.65;
+$wpc-footer-opacity-hover: 1;

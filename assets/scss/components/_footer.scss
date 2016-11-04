@@ -1,0 +1,91 @@
+#wpc-online-footer {
+	background: rgba( 0, 0, 0, 0.15 );
+	background: #222;
+	padding: $wpc-main-desktop-padding;
+	color: #fff;
+	font-size: 0.9em;
+	line-height: 1.8;
+	text-align: center;
+
+	a {
+		color: inherit;
+	}
+
+	img {
+		margin: 0;
+	}
+
+	.wpc-logo {
+		display: block;
+		opacity: $wpc-footer-opacity;
+		margin: 0 0 15px 0;
+
+		img {
+			height: 50px;
+		}
+
+		&:hover {
+			opacity: $wpc-footer-opacity-hover;
+		}
+	}
+
+	.wpc-footer-menu {
+		display: inline-block;
+		margin: 0;
+		border: 0;
+		padding: 0;
+		list-style: none;
+		overflow: auto;
+		text-align: center;
+
+		li {
+			display: block;
+			float: left;
+			margin: 0;
+			border: 0;
+			padding: 0;
+			list-style: none;
+
+			&:before {
+				content: '-';
+				padding: 0 5px;
+			}
+
+			&:first-child:before {
+				display: none;
+			}
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.github-message {
+		font-style: italic;
+	}
+
+	.icons {
+		margin: 20px 0 0 0;
+
+		.icon {
+			display: inline-block;
+			margin: 0 8px;
+
+			img {
+				display: block;
+				width: auto;
+				height: 30px;
+			}
+
+			a {
+				display: block;
+				opacity: $wpc-footer-opacity;
+
+				&:hover {
+					opacity: $wpc-footer-opacity-hover;
+				}
+			}
+		}
+	}
+}

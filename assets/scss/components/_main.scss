@@ -1,0 +1,12 @@
+#wpc-online-main {
+	min-height: 100%;
+	padding: 0 0 0 $wpc-nav-desktop-width;
+
+	.inside {
+		padding: 0 $wpc-main-desktop-padding;
+	}
+}
+
+#wpc-online-content {
+	padding: $wpc-main-desktop-padding 0;
+}
