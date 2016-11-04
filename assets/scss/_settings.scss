@@ -3,6 +3,11 @@
 @import "bourbon";
 @import "neat";
 
+// WordPress
+$wp-admin-bar-breakpoint: 782px;
+$wp-admin-bar-mobile-height: 46px;
+$wp-admin-bar-desktop-height: 32px;
+
 // Colors
 $wpc-royal-blue: #1159bd;
 $wpc-bg: #fff;

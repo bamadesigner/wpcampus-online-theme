@@ -9,6 +9,15 @@
 	border-right: 1px solid $wpc-border-color;
 	padding: 0 0 $wpc-nav-desktop-vert-padding 0;
 
+	body.admin-bar & {
+		top: $wp-admin-bar-mobile-height;
+
+		// The admin bar breakpoint
+		@media screen and (min-width: $wp-admin-bar-breakpoint) {
+			top: $wp-admin-bar-desktop-height;
+		}
+	}
+
 	.wpc-online-tiles {
 		background: url( '../images/wpcampus-tile-BG.jpg' );
 		background-size: 100% auto;
