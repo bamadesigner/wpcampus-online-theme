@@ -3,6 +3,9 @@
 @import "bourbon";
 @import "neat";
 
+// Breakpoints
+$wpc-desktop-bp: 760px;
+
 // WordPress
 $wp-admin-bar-breakpoint: 782px;
 $wp-admin-bar-mobile-height: 46px;

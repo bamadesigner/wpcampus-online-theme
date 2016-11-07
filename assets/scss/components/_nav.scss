@@ -1,13 +1,5 @@
 #wpc-online-nav {
 	background: rgba( 0, 0, 0, 0.05 );
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: $wpc-nav-desktop-width;
-	height: 100%;
-	overflow: scroll;
-	border-right: 1px solid $wpc-border-color;
-	padding: 0 0 $wpc-nav-desktop-vert-padding 0;
 
 	body.admin-bar & {
 		top: $wp-admin-bar-mobile-height;
@@ -80,6 +72,7 @@
 		img {
 			display: block;
 			margin: 0 auto;
+			max-width: 400px;
 		}
 	}
 
@@ -108,7 +101,35 @@
 					color: #222;
 					text-decoration: none;
 				}
+
+				&.highlight a {
+					position: relative;
+					color: #fff;
+					z-index: 0;
+
+					&:before {
+						content: '';
+						background: #900; //rgba(0, 0, 0, 0.15);
+						position: absolute;
+						left: ( $wpc-nav-desktop-horiz-padding / 2 );
+						top: 0;
+						width: 100%;
+						height: 100%;
+						z-index: -1;
+					}
+				}
 			}
 		}
+	}
+
+	@media screen and (min-width: $wpc-desktop-bp) {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: $wpc-nav-desktop-width;
+		height: 100%;
+		overflow: scroll;
+		border-right: 1px solid $wpc-border-color;
+		padding: 0 0 $wpc-nav-desktop-vert-padding 0;
 	}
 }

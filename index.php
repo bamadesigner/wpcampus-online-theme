@@ -5,7 +5,8 @@ get_header();
 ?>
 <div id="wpc-online-content">
 	<div class="inside">
-		<h1>WPCampus Online: A Virtual Conference for WordPress in Higher Education</h1>
+		<h1>What is WPCampus Online?</h1>
+		<h2>A Virtual Conference for WordPress in Higher Education</h2>
 		<p>Couldn’t make it to Sarasota this year for <a href="https://2016.wpcampus.org/">WPCampus 2016</a>? Is your budget tight for travel and conferences for 2017? Do you still want to experience WordPress sessions, expertise, and networking with users across the world without the expense and hassle of travel?</p>
 
 		<p>If this sounds right up your alley, be sure to mark your calendar for an "all day" virtual event on Monday, January 23, 2017 and join the WPCampus community for an entire day of education and professional development. No travel required!</p>
@@ -21,8 +22,7 @@ get_header();
 		<p>Our call for speakers is not limited to those who work in higher ed as we believe you do not have to be in higher education to bring value to our community. Please check out the <a href="https://wpcampus.org/online/call-for-speakers/">WPCampus Online Call for Speakers</a>, especially if you need topic inspiration, and consider contributing to our cause and community.</p>
 
 		<p>All that WPCampus needs from you to is to <a href="https://wpcampus.org/online/call-for-speakers/">submit a speaker proposal</a>, <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwpcampus.org%2Fonline&amp;text=Announcing%20%23WPCampus%20Online%2C%20a%20virtual%20conference%20for%20%23WordPress%20in%20%23highered.%20Call%20for%20speakers%20is%20open%21">help us spread the word</a>, and subscribe to our mailing list (which you can do so below). If you're not already a member of WPCampus, it's easy to <a href="https://wpcampus.org/get-involved/">get involved</a>.</p>
-
-		<h2 id="speakers">Interested in presenting?</h2>
+		<h2 id="speakers">Call for Speakers</h2>
 		<p>Speaking at a conference is great, if you can get there. This one comes to you! Share your stories and expertise from your living room by <a href="https://wpcampus.org/online/call-for-speakers/">submitting a speaker proposal to WPCampus Online</a>!</p>
 
 		<p>Our call for speakers is not limited to those who work in higher ed as you do not have to be in higher education to bring value to our community. If you need topic inspiration, we have provided a few ideas below.</p>
@@ -38,9 +38,10 @@ get_header();
 		<p><strong>Please form your proposals around how-to sessions, case studies, conceptual discussions, best practices, and even works-in-progress demonstrations. Let us know what audiences should hear your talk and why.</strong></p>
 
 		<h3>Possible Topic Ideas</h3>
-		All accepted sessions will consist of 45 minute talks (40 minutes with approximately 5 minutes for questions).
+		<p>All accepted sessions will consist of 45 minute talks (40 minutes with approximately 5 minutes for questions).</p>
 
-		WPCampus has brainstormed some topic ideas to get your gears turning on session ideas:
+		<p>WPCampus has brainstormed some topic ideas to get your gears turning on session ideas:</p>
+
 		<div class="columns two">
 			<h3>Why WordPress?</h3>
 			<ul>

@@ -1,7 +1,8 @@
 // Require all the things (that we need)
 var gulp = require('gulp');
 var watch = require('gulp-watch');
-var minify = require('gulp-minify');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var normalize = require('node-normalize-scss').includePaths;
@@ -13,12 +14,14 @@ var sassIncludes = [].concat(normalize, bourbon, neat);
 
 // Define the source paths for each file type
 var src = {
-    scss: './assets/scss/**/*'
+    scss: './assets/scss/**/*',
+    js: './assets/js/wpcampus-online.js'
 };
 
 // Define the destination paths for each file type
 var dest = {
-	scss: './assets/css'
+	scss: './assets/css',
+	js: './assets/js'
 }
 
 // Sass is pretty awesome, right?
@@ -36,21 +39,23 @@ gulp.task('sass', function() {
 		.pipe(gulp.dest(dest.scss));
 });
 
-// We don't need this... yet
-/*gulp.task('compress', function() {
+// Uglify all the JS
+gulp.task('js', function() {
     gulp.src(src.js)
-        .pipe(minify({
-            exclude: ['tasks'],
-            mangle: false
-        }))
+        .pipe(uglify({
+			mangle: false
+		}))
+		.pipe(rename({
+			suffix: '.min'
+		}))
         .pipe(gulp.dest(dest.js))
-});*/
+});
 
 // I've got my eyes on you(r file changes)
 gulp.task('watch', function() {
 	gulp.watch(src.scss, ['sass']);
-	gulp.watch(src.js, ['compress']);
+	gulp.watch(src.js, ['js']);
 });
 
 // Let's get this party started
-gulp.task('default', ['sass','watch']);
+gulp.task('default', ['sass','js','watch']);

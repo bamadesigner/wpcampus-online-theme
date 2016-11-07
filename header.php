@@ -32,12 +32,13 @@ $blog_url = get_bloginfo( 'url' );
 			<div class="wpc-online-menu">
 				<ul>
 					<li><a href="#about">About</a></li>
-					<li><a href="#speakers">Call for Speakers</a></li>
+					<li class="highlight"><a href="#speakers">Call for Speakers</a></li>
 					<li><a href="#wpcampus">What is WPCampus?</a></li>
 					<li><a href="#conduct">Code of Conduct</a></li>
 					<li><a href="#contact">Contact Us</a></li>
 					<li><a href="#subscribe">Subscribe</a></li>
 				</ul>
 			</div>
+			<div class="wpc-online-subscribe"></div>
 		</div>
 		<div id="wpc-online-main">
