@@ -8,6 +8,20 @@
 		padding: 0 $wpc-main-desktop-padding;
 	}
 
+	.panel {
+
+		&.red {
+			background: #900;
+			color: #fff;
+			padding: 20px $wpc-main-desktop-padding;
+			margin: 20px ( 0 - $wpc-main-desktop-padding );
+
+			a {
+				color: inherit;
+			}
+		}
+	}
+
 	@media screen and (min-width: $wpc-desktop-bp) {
 		min-height: 100%;
 		padding: 0 0 0 $wpc-nav-desktop-width;

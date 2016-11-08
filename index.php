@@ -5,15 +5,18 @@ get_header();
 ?>
 <div id="wpc-online-content">
 	<div class="inside">
-		<h1>What is WPCampus Online?</h1>
+		<h1 id="about">What is WPCampus Online?</h1>
 		<h2>A Virtual Conference for WordPress in Higher Education</h2>
+
+		<?php get_template_part( 'partials/tweets' ); ?>
+		<div class="panel red"><strong>The WPCampus Online <a href="/speakers/">Call for Speakers</a> closes at 12 a.m. (midnight) PDT on Friday, November 18, 2016.</strong></div>
+
+
 		<p>Couldn’t make it to Sarasota this year for <a href="https://2016.wpcampus.org/">WPCampus 2016</a>? Is your budget tight for travel and conferences for 2017? Do you still want to experience WordPress sessions, expertise, and networking with users across the world without the expense and hassle of travel?</p>
 
 		<p>If this sounds right up your alley, be sure to mark your calendar for an "all day" virtual event on Monday, January 23, 2017 and join the WPCampus community for an entire day of education and professional development. No travel required!</p>
 
 		<div class="panel" style="font-size: 1.1rem; text-align: center;"><span style="font-size: 1.2rem;">WPCampus is proud to introduce <strong>WPCampus Online</strong>!</span><br />Our inaugural virtual conference scheduled for <strong>Monday, January 23, 2017</strong>.</div>
-
-		<div class="panel red" style="text-align: center;"><strong>The WPCampus Online <a href="https://wpcampus.org/online/call-for-speakers/">Call for Speakers</a> closes at 12 a.m. (midnight) PDT on Friday, November 18, 2016.</strong></div>
 
 		<p>WPCampus Online is a virtual conference that will provide multiple WordPress tracks, great speakers, easy-to-use technology, and opportunities to network and connect with colleagues. <strong>This virtual event will be supplemental to, and not a replacement for, our in-person conference.</strong> The more options for development the better!</p>
 
@@ -116,14 +119,16 @@ get_header();
 			</ul>
 		</div>
 
-		<h3>Proposal Form</h3>
-		<?php do_shortcode( '[gravityform id="16" title="false" description="false"]' ); ?>
+		<h3>Submit Your Speaker Proposal</h3>
+		<?php echo do_shortcode( '[gravityform id="1" title="false" description="false"]' ); ?>
 
-		<h2>Subscribe to the mailing list</h2>
-		<?php do_shortcode( '[gravityform id="18" title="false" description="false"]' ); ?>
-
-		<h2>Code of Conduct</h2>
+		<h2 id="conduct">Code of Conduct</h2>
 		<p>WPCampus seeks to provide a friendly, safe environment in which all participants can engage in productive dialogue, sharing, and learning with each other in an atmosphere of mutual respect. In order to promote such an environment, we require all participants to adhere to our <a href="https://wpcampus.org/code-of-conduct/">code of conduct</a>, which applies to all community interaction and events.</p>
+
+		<h2 id="subscribe">Subscribe to the mailing list</h2>
+		<?php do_shortcode( '[gravityform id="2" title="false" description="false"]' ); ?>
+
+		<h2 id="contact">Contact Us</h2>
 	</div>
 </div>
 <?php

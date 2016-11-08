@@ -71,11 +71,8 @@ img {
 	min-height: 100%;
 }
 
-// Include our nav styles
+// Include our components
 @import "components/nav";
-
-// Include our main styles
 @import "components/main";
-
-// Include our footer styles
+@import "components/tweets";
 @import "components/footer";
