@@ -8,7 +8,6 @@ get_header();
 		<h1 id="about">What is WPCampus Online?</h1>
 		<h2>A Virtual Conference for WordPress in Higher Education</h2>
 
-		<?php get_template_part( 'partials/tweets' ); ?>
 		<div class="panel red"><strong>The WPCampus Online <a href="/speakers/">Call for Speakers</a> closes at 12 a.m. (midnight) PDT on Friday, November 18, 2016.</strong></div>
 
 
