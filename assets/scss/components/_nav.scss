@@ -1,39 +1,53 @@
 #wpc-online-nav {
-	background: rgba( 0, 0, 0, 0.05 );
+	background: $wpc-nav-bg-color;
+	height: $wpc-nav-height-desktop;
+	color: #fff;
 
-	body.admin-bar & {
+	/*body.admin-bar & {
 		top: $wp-admin-bar-mobile-height;
 
 		// The admin bar breakpoint
 		@media screen and (min-width: $wp-admin-bar-breakpoint) {
 			top: $wp-admin-bar-desktop-height;
 		}
-	}
+	}*/
 
-	.wpc-online-tiles {
-		background: url( '../images/wpcampus-tile-BG.jpg' );
-		background-size: 100% auto;
-		min-height: 80px; // @TODO resize image if we don't need the full size
-		position: relative;
-		box-shadow: inset 0 0 15px #000;
+	.wpc-online-menu {
+		float: left;
 
-		&:before {
-			content: '';
-			background: rgba( 0, 0, 0, 0.6 );
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
+		ul {
+			display: block;
+			margin: 0 ( 0 - $wpc-nav-item-side-padding );
+			padding: 0;
+			list-style: none;
+			overflow: auto;
+
+			li {
+				display: block;
+				float: left;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: inherit;
+
+				a {
+					display: block;
+					color: inherit;
+					text-decoration: none;
+					line-height: $wpc-nav-height-desktop;
+					padding: 0 $wpc-nav-item-side-padding;
+				}
+			}
 		}
 	}
 
 	.wpc-online-social {
-		background: $wpc-royal-blue;
-		padding: 17px $wpc-nav-desktop-horiz-padding;
+		float: right;
 		overflow: auto;
+		line-height: $wpc-nav-height-desktop;
 		color: #fff;
-		line-height: $wpc-nav-social-icon-height;
 
 		.icon {
 			display: block;
@@ -43,7 +57,6 @@
 			img {
 				display: block;
 				width: auto;
-				height: $wpc-nav-social-icon-height;
 				margin: 0;
 			}
 
@@ -57,79 +70,5 @@
 			float: right;
 			padding: 0 0 0 15px;
 		}
-	}
-
-	.wpc-online-logo {
-		background: #fff;
-		border-bottom: 1px solid $wpc-border-color;
-		padding: $wpc-nav-desktop-vert-padding 0;
-
-		a {
-			display: block;
-			padding: 0 $wpc-nav-desktop-horiz-padding;
-		}
-
-		img {
-			display: block;
-			margin: 0 auto;
-			max-width: 400px;
-		}
-	}
-
-	.wpc-online-menu {
-		padding: 20px 0 $wpc-nav-desktop-vert-padding 0;
-
-		ul {
-			display: block;
-			margin: 0;
-			padding: 0;
-			list-style: none;
-
-			li {
-				display: block;
-				margin: 0;
-				padding: 0;
-				list-style: none;
-				text-transform: uppercase;
-				font-weight: 500;
-				//border-bottom: 1px solid $wpc-border-color;
-
-				a {
-					display: block;
-					//background: rgba( 0, 0, 0, 0.15 );
-					padding: 6px $wpc-nav-desktop-horiz-padding;
-					color: #222;
-					text-decoration: none;
-				}
-
-				&.highlight a {
-					position: relative;
-					color: #fff;
-					z-index: 0;
-
-					&:before {
-						content: '';
-						background: #900; //rgba(0, 0, 0, 0.15);
-						position: absolute;
-						left: ( $wpc-nav-desktop-horiz-padding / 2 );
-						top: 0;
-						width: 100%;
-						height: 100%;
-						z-index: -1;
-					}
-				}
-			}
-		}
-	}
-
-	@media screen and (min-width: $wpc-desktop-bp) {
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: $wpc-nav-desktop-width;
-		height: 100%;
-		overflow: scroll;
-		border-right: 1px solid $wpc-border-color;
-		padding: 0 0 $wpc-nav-desktop-vert-padding 0;
 	}
 }

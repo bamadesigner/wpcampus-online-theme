@@ -1,0 +1,70 @@
+#wpc-online-banner {
+	background: url( '../images/wpcampus-tile-BG.jpg' ) center center;
+	background-size: auto 150%;
+	//box-shadow: inset 0 0 15px #000;position: relative;
+	z-index: 0;
+	position: relative;
+	border-bottom: 2px solid #fff;
+
+	&:before {
+		content: '';
+		background: rgba( 0, 0, 0, 0.65 );
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+
+	.inside {
+		overflow: visible;
+	}
+
+	a.wpc-online-logo {
+		display: block;
+		background: #fff;
+		width: 270px;
+		height: auto;
+		float: left;
+		padding: 25px 30px 25px 30px;
+		margin: 0 0 0 -25px;
+		z-index: 10;
+		position: relative;
+
+		img {
+			display: block;
+			margin: 0 auto;
+			width: 100%;
+			height: auto;
+		}
+
+		&:before {
+			content: '';
+			background: $wpc-royal-blue;
+			position: absolute;
+			right: 100%;
+			top: 0;
+			width: 20000px;
+			height: 100%;
+			z-index: -1;
+		}
+	}
+
+	.banner-text {
+		float: left;
+		padding: 25px 20px 0 25px;
+		color: #fff;
+		font-size: 1.6rem;
+		line-height: 1.5;
+
+		.date {
+			display: block;
+			font-size: 1.1rem;
+		}
+
+		.tagline {
+			display: block;
+		}
+	}
+}
