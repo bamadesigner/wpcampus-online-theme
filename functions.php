@@ -61,9 +61,13 @@ function wpc_online_add_favicons() {
 	// Set the image sizes
 	$image_sizes = array( 57, 72, 76, 114, 120, 144, 152 );
 
-	foreach( $image_sizes as $size ) {
-		?><link rel="apple-touch-icon" sizes="<?php echo "{$size}x{$size}"; ?>" href="<?php echo $favicons_folder; ?>wpcampus-favicon-<?php echo $size; ?>.png"/><?php
-	}
+	foreach( $image_sizes as $size ) :
+
+		?>
+		<link rel="apple-touch-icon" sizes="<?php echo "{$size}x{$size}"; ?>" href="<?php echo $favicons_folder; ?>wpcampus-favicon-<?php echo $size; ?>.png"/>
+		<?php
+
+	endforeach;
 
 }
 
@@ -72,17 +76,17 @@ function wpc_online_add_favicons() {
  */
 function wpc_online_enqueue_styles_scripts() {
 
-	// Register our fonts
+	// Register our fonts.
 	// @TODO make sure we remove what we're not using
 	//wp_register_style( 'wpc-online-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600' );
 
-	// Add our main stylesheet
-	wp_enqueue_style( 'wpc-online', get_stylesheet_directory_uri() . '/assets/css/styles.css', array() );
+	// Add our main stylesheet.
+	wp_enqueue_style( 'wpc-online', get_stylesheet_directory_uri() . '/assets/css/styles.css', array(), null );
 
-	// Add our main script
+	// Add our main script.
 	wp_enqueue_script( 'wpc-online', get_stylesheet_directory_uri() . '/assets/js/wpcampus-online.min.js', array( 'jquery' ), null, true );
 
-	// Pass data
+	// Pass data to our script.
 	wp_localize_script( 'wpc-online', 'wpc_online', array(
 		'url'   => get_bloginfo( 'url' ),
 		'title' => get_bloginfo( 'name' ),
@@ -102,7 +106,7 @@ function wpc_online_filter_page_title( $title ) {
 
 	// Change the schedule page title.
 	if ( is_singular( 'schedule' ) ) {
-		return 'Schedule';
+		return __( 'Schedule', 'wpc-online' ) . ' <a class="wpc-online-action" href="' . get_bloginfo('url') . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
 	}
 
 	return $title;

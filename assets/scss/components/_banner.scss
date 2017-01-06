@@ -1,7 +1,9 @@
 #wpc-online-banner {
 	background: url( '../images/wpcampus-tile-BG.jpg' ) center center;
 	background-size: auto 150%;
-	//box-shadow: inset 0 0 15px #000;position: relative;
+	height: $wpc-banner-height;
+	overflow: hidden;
+	//box-shadow: inset 0 0 15px #000;
 	z-index: 0;
 	position: relative;
 	border-bottom: 2px solid #fff;
@@ -18,53 +20,103 @@
 	}
 
 	.inside {
+		height: $wpc-banner-height;
 		overflow: visible;
 	}
 
-	a.wpc-online-logo {
+	.wpc-online-logo {
 		display: block;
 		background: #fff;
-		width: 270px;
-		height: auto;
-		float: left;
-		padding: 25px 30px 25px 30px;
-		margin: 0 0 0 -25px;
-		z-index: 10;
+		width: auto;
+		height: $wpc-banner-height;
+		padding: 0;
+		margin: 0 auto;
 		position: relative;
 
 		img {
 			display: block;
 			margin: 0 auto;
-			width: 100%;
+			width: 80%;
 			height: auto;
-		}
-
-		&:before {
-			content: '';
-			background: $wpc-royal-blue;
+			max-height: 80%;
+			max-width: 250px;
 			position: absolute;
-			right: 100%;
-			top: 0;
-			width: 20000px;
-			height: 100%;
-			z-index: -1;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
 		}
 	}
 
 	.banner-text {
+		display: none;
 		float: left;
-		padding: 25px 20px 0 25px;
+		width: 55%;
+		height: $wpc-banner-height;
 		color: #fff;
-		font-size: 1.6rem;
-		line-height: 1.5;
+		font-size: 1.2rem;
+		line-height: 1.3;
+		text-align: left;
+		position: relative;
+		padding: 0 0 0 25px;
 
 		.date {
-			display: block;
+			display: none;
 			font-size: 1.1rem;
 		}
 
 		.tagline {
 			display: block;
+			position: absolute;
+			left: 25px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	@media screen and (min-width: 500px) {
+
+		.wpc-online-logo {
+			float: left;
+			width: 45%;
+			margin: 0 0 0 -25px;
+
+			&:before {
+				content: '';
+				background: $wpc-royal-blue;
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 20000px;
+				height: 100%;
+				z-index: -1;
+			}
+		}
+
+		.banner-text {
+			display: block;
+		}
+	}
+
+	@media screen and (min-width: $wpc-banner-full) {
+
+		.wpc-online-logo {
+			width: 270px;
+		}
+
+		.banner-text {
+			width: auto;
+			font-size: 1.6rem;
+			line-height: 1.5;
+			padding: 28px 20px 0 25px;
+
+			.date {
+				display: block;
+			}
+
+			.tagline {
+				position: static;
+				transform: none;
+			}
 		}
 	}
 }

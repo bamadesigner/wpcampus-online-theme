@@ -60,6 +60,12 @@ img {
 	max-width: 100%;
 	height: auto;
 	margin: 1.5rem 0 0 0;
+
+	&.aligncenter {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 *:first-child {
@@ -75,7 +81,7 @@ img {
 		margin-left: auto;
 		margin-right: auto;
 		padding: 0 40px;
-		overflow: auto;
+		overflow: visible;
 	}
 }
 

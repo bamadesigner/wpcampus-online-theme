@@ -8,6 +8,17 @@
 		text-transform: uppercase;
 		font-weight: 300;
 		margin: 0;
+		position: relative;
+
+		.wpc-online-action {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			text-transform: none;
+			font-size: 1.1rem;
+		}
 	}
 
 	.breadcrumbs-wrapper {
@@ -52,12 +63,63 @@
 	}
 }
 
+#wpc-online-details {
+	background: rgba( #000, 0.07 );
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0;
+	padding: 20px 0;
+	text-align: left;
+	color: #222;
+
+	* {
+		margin: 0;
+	}
+
+	a {
+		color: inherit;
+		font-weight: bold;
+	}
+}
+
 #wpc-online-main {
+	background: $wpc-main-bg;
 	min-height: 200px;
+}
 
-	/*.panel {
+#wpc-online-content {
+	padding: 30px 0;
 
-		&.red {
+	.highlight {
+		font-size: 1.4rem;
+		line-height: 1.6;
+	}
+
+	ul, ol {
+
+		&.columns {
+
+			&.two {
+				overflow: auto;
+
+				li {
+					float: left;
+					width: 50%;
+				}
+			}
+		}
+	}
+
+	.panel {
+		padding: 20px;
+		margin: 1.5rem 0;
+		text-align: center;
+
+		a {
+			color: inherit;
+		}
+
+		/*&.red {
 			background: #900;
 			color: #fff;
 			padding: 20px $wpc-main-desktop-padding;
@@ -66,14 +128,73 @@
 			a {
 				color: inherit;
 			}
+		}*/
+
+		&.gray {
+			background: rgba( #000, 0.07 );
+			color: #222;
 		}
-	}*/
 
-	/*@media screen and (min-width: $wpc-desktop-bp) {
-		min-height: 100%;
-	}*/
-}
+		&.blue {
+			background: $wpc-royal-blue;
+			color: #fff;
+		}
 
-#wpc-online-content {
-	padding: 30px 0;
+		&.bigger {
+			font-size: 1.2rem;
+			line-height: 1.7;
+		}
+	}
+
+	.front-promo {
+
+		.front-promo-1 {
+			font-size: 1.3rem;
+			line-height: 1.7;
+			margin: 10px 0 0 0;
+			text-align: center;
+		}
+
+		.front-promo-2 {
+			font-size: 1.3rem;
+			line-height: 1.7;
+			text-align: center;
+			margin: 40px -40px 50px -40px;
+			padding: 20px 40px;
+		}
+
+		@media screen and (min-width: $wpc-banner-full) {
+
+			.front-promo-1 {
+				font-size: 1.5rem;
+				line-height: 1.8;
+				margin: 20px 0;
+			}
+
+			.front-promo-2 {
+				font-size: 1.6rem;
+				line-height: 1.8;
+				padding: 20px 10%;
+			}
+		}
+	}
+
+	.wpcampus-center {
+		text-align: center;
+
+		ul, ol {
+			text-align: left;
+
+			&.columns.two {
+
+				li {
+					width: 30%;
+
+					&:nth-child(odd) {
+						margin-left: 25%;
+					}
+				}
+			}
+		}
+	}
 }

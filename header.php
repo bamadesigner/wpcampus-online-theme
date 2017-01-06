@@ -6,7 +6,8 @@ $theme_dir = trailingslashit( get_stylesheet_directory_uri() );
 // Get the blog URL.
 $blog_url = get_bloginfo( 'url' );
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -21,21 +22,30 @@ $blog_url = get_bloginfo( 'url' );
 			<div class="inside">
 				<a class="wpc-online-logo" href="<?php echo $blog_url; ?>"><img src="<?php echo $theme_dir; ?>assets/images/wpcampus-online-logo.svg" alt="WPCampus Online: Where WordPress Meets Higher Education" /></a>
 				<div class="banner-text">
-					<span class="date">Join us online Monday, January 23, 2017</span>
-					<span class="tagline">A Virtual Conference for WordPress in Higher Education</span>
+					<span class="date"><?php _e( 'Join us online Monday, January 23, 2017 at 9 a.m. CST', 'wpc-online' ); ?></span>
+					<span class="tagline"><?php printf( __( 'A Virtual Conference for %s in Higher Education', 'wpc-online' ), 'WordPress' ); ?></span>
 				</div>
 				<div style="clear:both;"></div>
 			</div>
 		</div>
 		<div id="wpc-online-nav">
 			<div class="inside">
+				<div class="toggle-main-menu">
+					<div class="toggle-icon">
+						<div class="bar one"></div>
+						<div class="bar two"></div>
+						<div class="bar three"></div>
+					</div>
+					<div class="open-menu-label"><?php _e( 'Menu', 'wpc-online' ); ?></div>
+					<div class="close-menu-label"><?php _e( 'Close', 'wpc-online' ); ?></div>
+				</div>
 				<?php
 
 				// Print the main menu.
 				wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'container_class' => 'wpc-online-menu',
-					'menu_id' => false,
+					'theme_location'    => 'primary',
+					'container_class'   => 'wpc-online-menu',
+					'menu_id'           => false,
 				));
 
 				?>
@@ -47,9 +57,14 @@ $blog_url = get_bloginfo( 'url' );
 				</div>
 			</div>
 		</div>
+		<div id="wpc-online-details">
+			<div class="inside">
+				<p>Will take place Monday, January 23, 2017 from 9 a.m. to 5 p.m. CST. Free of charge. There will be 2 rooms and <a href="https://online.wpcampus.org/schedule/">16 sessions</a>. We hope you can join us!</p>
+			</div>
+		</div>
 		<?php
 
-		if ( ! $is_front_page ) :
+		if ( ! is_front_page() ) :
 
 			// Get the breadcrumbs.
 			$breadcrumbs = ''; //wpc_online_get_breadcrumbs_html();

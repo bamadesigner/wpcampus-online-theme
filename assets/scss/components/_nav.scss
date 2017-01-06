@@ -1,19 +1,74 @@
 #wpc-online-nav {
 	background: $wpc-nav-bg-color;
-	height: $wpc-nav-height-desktop;
+	height: $wpc-nav-height;
 	color: #fff;
 
-	/*body.admin-bar & {
-		top: $wp-admin-bar-mobile-height;
+	.inside {
+		padding: 0 20px;
+	}
 
-		// The admin bar breakpoint
-		@media screen and (min-width: $wp-admin-bar-breakpoint) {
-			top: $wp-admin-bar-desktop-height;
+	.toggle-main-menu {
+		display: block;
+		float: left;
+		height: $wpc-nav-height;
+		color: rgba( #fff, 0.9 );
+		text-transform: uppercase;
+		font-size: 1em;
+		line-height: $wpc-nav-height;
+		padding: 0;
+		cursor: pointer;
+		overflow: hidden;
+
+		.open-menu-label,
+		.close-menu-label {
+			display: block;
+			float: left;
+			text-transform: uppercase;
+			height: $wpc-nav-height;
+			line-height: $wpc-nav-height;
 		}
-	}*/
+
+		.close-menu-label {
+			display: none;
+		}
+
+		.toggle-icon {
+			display: block;
+			float: left;
+			width: 22px;
+			height: 18px;
+			cursor: pointer;
+			position: relative;
+			margin: 15px 12px 0 0;
+
+			.bar {
+				background: rgba( #fff, 0.8 );
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				margin: 0;
+				opacity: 1;
+				-webkit-transition: all 200ms ease-out;
+				-moz-transition: all 200ms ease-out;
+				-ms-transition: all 200ms ease-out;
+				-o-transition: all 200ms ease-out;
+				transition: all 200ms ease-out;
+
+				&.two {
+					margin-top: 8px;
+				}
+
+				&.three {
+					margin-top: 16px;
+				}
+			}
+		}
+	}
 
 	.wpc-online-menu {
-		float: left;
+		display: none;
 
 		ul {
 			display: block;
@@ -24,7 +79,6 @@
 
 			li {
 				display: block;
-				float: left;
 				margin: 0;
 				padding: 0;
 				list-style: none;
@@ -36,7 +90,7 @@
 					display: block;
 					color: inherit;
 					text-decoration: none;
-					line-height: $wpc-nav-height-desktop;
+					line-height: $wpc-nav-height;
 					padding: 0 $wpc-nav-item-side-padding;
 				}
 			}
@@ -44,19 +98,30 @@
 	}
 
 	.wpc-online-social {
+		display: none;
 		float: right;
 		overflow: auto;
-		line-height: $wpc-nav-height-desktop;
+		line-height: $wpc-nav-height;
 		color: #fff;
 
 		.icon {
 			display: block;
 			float: left;
-			margin: 0 0 0 12px;
+			margin: 0 0 0 15px;
+			height: $wpc-nav-height;
+			line-height: $wpc-nav-height;
+
+			a {
+				display: block;
+				height: $wpc-nav-height;
+				line-height: $wpc-nav-height + 5;
+			}
 
 			img {
-				display: block;
+				display: inline-block;
 				width: auto;
+				height: 18px;
+				line-height: $wpc-nav-height;
 				margin: 0;
 			}
 
@@ -70,5 +135,84 @@
 			float: right;
 			padding: 0 0 0 15px;
 		}
+
+		@media screen and (min-width: 350px) {
+			display: block;
+		}
+	}
+
+	&.open-menu {
+		height: auto;
+
+		.toggle-main-menu {
+			display: block;
+			float: none;
+
+			.toggle-icon {
+
+				.bar {
+
+					&.one {
+						margin-top: 8px;
+						-webkit-transform: rotate(45deg);
+						-moz-transform: rotate(45deg);
+						-ms-transform: rotate(45deg);
+						-o-transform: rotate(45deg);
+						transform: rotate(45deg);
+					}
+
+					&.two {
+						opacity: 0;
+					}
+
+					&.three {
+						margin-top: 8px;
+						-webkit-transform: rotate(-45deg);
+						-moz-transform: rotate(-45deg);
+						-ms-transform: rotate(-45deg);
+						-o-transform: rotate(-45deg);
+						transform: rotate(-45deg);
+					}
+				}
+			}
+
+			.open-menu-label {
+				display: none;
+			}
+
+			.close-menu-label {
+				display: block;
+			}
+		}
+
+		.wpc-online-social {
+			display: none;
+		}
+	}
+
+	@media screen and (min-width: $wpc-nav-full) {
+
+		.inside {
+			padding: 0 40px;
+		}
+
+		.toggle-main-menu {
+			display: none !important;
+		}
+
+		.wpc-online-menu {
+			display: block !important;
+			float: left;
+
+			ul {
+
+				li {
+					float: left;
+				}
+			}
+		}
+	}
+	@media screen and (min-width: $wpc-banner-full) {
+
 	}
 }

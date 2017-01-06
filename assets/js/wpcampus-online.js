@@ -1,18 +1,10 @@
 (function( $ ) {
 	'use strict';
 
-	/*// Changes .svg to .png if doesn't support SVG (Fallback)
-	if ( ! Modernizr.svg ) {
-
-		$( 'img[src*="svg"]' ).attr( 'src', function() {
-			return $( this ).attr( 'src' ).replace( '.svg', '.png' );
-		});
-
-	}*/
-
-	/*// Get the banner and main menu
-	var $banner = jQuery( '#wpcampus-banner' );
-	var $main_menu = jQuery( '#wpcampus-main-menu' );
+	// Get the banner and main menu.
+	var $nav_container = jQuery( '#wpc-online-nav' );
+	var $main_menu = jQuery( '.wpc-online-menu' );
+	var $nav_social = jQuery( '.wpc-online-social' );
 
 	// Add listener to all elements who have the class to toggle the main menu
 	jQuery( '.toggle-main-menu' ).on( 'touchstart click', function( $event ) {
@@ -22,21 +14,20 @@
 		$event.preventDefault();
 
 		// If banner isn't open, open it
-		if ( ! $banner.hasClass( 'open-menu' ) ) {
+		if ( ! $nav_container.hasClass( 'open-menu' ) ) {
 
-			$banner.addClass( 'open-menu' );
+			$nav_social.hide();
+			$nav_container.addClass( 'open-menu' );
 			$main_menu.slideDown( 400 );
 
 		} else {
 
-			$banner.removeClass( 'open-menu' );
-			$main_menu.slideUp( 400 );
+			$main_menu.slideUp( 400, function() {
+				$nav_container.removeClass( 'open-menu' );
+				$nav_social.fadeIn();
+			});
 
 		}
-
-	});*/
-
-	$( document ).ready(function() {
 
 	});
 
