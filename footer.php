@@ -3,11 +3,14 @@
 // Get the theme directory.
 $theme_dir = trailingslashit( get_stylesheet_directory_uri() );
 
-//<div class="wpc-online-subscribe"></div>
-/*<h2>Subscribe to the mailing list</h2>
-		<?php do_shortcode( '[gravityform id="2" title="false" description="false"]' ); ?>*/
-
-		?><div id="wpc-online-footer">
+		?>
+		<div id="wpc-online-subscribe">
+			<div class="inside">
+				<h2>Subscribe to the mailing list</h2>
+				<?php echo do_shortcode( '[gravityform id="2" title="false" description="false"]' ); ?>
+			</div>
+		</div>
+		<div id="wpc-online-footer">
 			<a class="wpc-logo" href="https://wpcampus.org/"><img src="<?php echo $theme_dir; ?>assets/images/wpcampus-logo-tagline.svg" alt="<?php printf( __( '%s: Where WordPress Meets Higher Education', 'wpcampus' ), 'WPCampus' ); ?>" /></a>
 			<ul class="wpc-footer-menu" role="navigation">
 				<li><a href="https://wpcampus.org/code-of-conduct/">Code of Conduct</a></li>
