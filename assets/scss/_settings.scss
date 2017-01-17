@@ -5,8 +5,7 @@
 
 // Breakpoints
 $wpc-banner-full: 1060px;
-//$wpc-desktop-bp: 760px;
-//@media screen and (min-width: $wpc-desktop-bp)
+$wpc-nav-full: 920px;
 
 // WordPress
 //$wp-admin-bar-breakpoint: 782px;
@@ -30,7 +29,6 @@ $wpc-banner-bg-color: #fff;
 $wpc-nav-bg-color: $wpc-dark-blue;
 $wpc-nav-height: 50px;
 $wpc-nav-item-side-padding: 20px;
-$wpc-nav-full: 820px;
 
 // Main settings
 $wpc-main-bg: #fff;
