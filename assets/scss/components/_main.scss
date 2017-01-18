@@ -14,8 +14,16 @@
 			display: block;
 			text-transform: none;
 			font-size: 1.1rem;
+		}
 
-			@media screen and (min-width: 480px) {
+		@media screen and (min-width: 480px) {
+
+			.wpc-title-with-action {
+				display: block;
+				padding-right: 20%;
+			}
+
+			.wpc-online-action {
 				position: absolute;
 				top: 50%;
 				right: 0;

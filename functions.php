@@ -106,11 +106,11 @@ function wpc_online_filter_page_title( $title ) {
 
 	// Modify page titles
 	if ( is_singular( 'schedule' ) ) {
-		return $title . ' <a class="wpc-online-action" href="' . get_bloginfo('url') . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action" href="' . get_bloginfo('url') . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
 	} elseif ( is_page( 'watch/room-1' ) ) {
-		return $title . ' <a class="wpc-online-action" href="' . get_bloginfo('url') . '/watch/room-2/">' . __( 'Watch Room Two', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' .$title . '</span><a class="wpc-online-action" href="' . get_bloginfo('url') . '/watch/room-2/">' . __( 'Watch Room Two', 'wpc-online' ) . '</a>';
     } elseif ( is_page( 'watch/room-2' ) ) {
-		return $title . ' <a class="wpc-online-action" href="' . get_bloginfo('url') . '/watch/room-1/">' . __( 'Watch Room One', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' .$title . '</span><a class="wpc-online-action" href="' . get_bloginfo('url') . '/watch/room-1/">' . __( 'Watch Room One', 'wpc-online' ) . '</a>';
 	}
 
 	return $title;
