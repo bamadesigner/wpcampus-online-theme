@@ -4,33 +4,38 @@
 @import "neat";
 
 // Breakpoints
-$wpc-desktop-bp: 760px;
+$wpc-banner-full: 1060px;
+$wpc-nav-full: 920px;
 
 // WordPress
-$wp-admin-bar-breakpoint: 782px;
-$wp-admin-bar-mobile-height: 46px;
-$wp-admin-bar-desktop-height: 32px;
+//$wp-admin-bar-breakpoint: 782px;
+//$wp-admin-bar-mobile-height: 46px;
+//$wp-admin-bar-desktop-height: 32px;
 
 // Colors
 $wpc-royal-blue: #1159bd;
-$wpc-bg: #fff;
-$wpc-border-color: rgba( 0, 0, 0, 0.1 );
+$wpc-dark-blue: #2e3641;
+$wpc-bg: #fafafa;
 
 // Typography
 $wpc-font-primary: 'Libre Franklin', sans-serif; // Libre Franklin', 'Titillium Web', 'Roboto'
-
 $wpc-color: #222;
 
-// Nav settings
-$wpc-nav-desktop-width: 350px;
-$wpc-nav-desktop-vert-padding: 30px;
-$wpc-nav-desktop-horiz-padding: 40px;
+// Banner settings
+$wpc-banner-height: 120px;
+$wpc-banner-bg-color: #fff;
 
-$wpc-nav-social-icon-height: 20px;
+// Nav settings
+$wpc-nav-bg-color: $wpc-dark-blue;
+$wpc-nav-height: 50px;
+$wpc-nav-item-side-padding: 20px;
 
 // Main settings
-$wpc-main-desktop-padding: 40px;
+$wpc-main-bg: #fff;
+$wpc-main-title-bg: #fafafa;
 
 // Footer settings
+$wpc-footer-bg-color: $wpc-bg;
+$wpc-footer-color: #222;
 $wpc-footer-opacity: 0.65;
 $wpc-footer-opacity-hover: 1;

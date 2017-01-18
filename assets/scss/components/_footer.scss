@@ -1,10 +1,93 @@
+#wpc-online-subscribe {
+	background: rgba( 0, 0, 0, 0.07 );
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0;
+	padding: 20px 0;
+	text-align: left;
+	color: #222;
+
+	h2 {
+		font-size: 1rem;
+		line-height: 1;
+		margin: 0 0 12px 0;
+	}
+
+	.gform_wrapper {
+
+		.gfield_label {
+			@include screen-reader-text();
+		}
+
+		ul {
+
+			li.gfield {
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		.ginput_container {
+			margin: 0;
+		}
+
+		input[type="text"] {
+			width: 100%;
+			height: 30px;
+			line-height: 30px;
+			margin: 0 0 10px 0;
+		}
+
+		.gform_footer {
+			margin: 0;
+
+			.gform_button {
+				width: 100%;
+				height: 30px;
+				font-size:0.85rem;
+				line-height: 30px;
+				margin: 0;
+				border:0;
+				padding: 0;
+			}
+		}
+	}
+
+	@media screen and (min-width: 600px) {
+
+		.gform_wrapper {
+
+			form {
+				overflow: auto;
+			}
+
+			input[type="text"] {
+				margin: 0;
+			}
+
+			.gform_body {
+				float: left;
+				width: 50%;
+				padding: 0 10px 0 0;
+			}
+
+			.gform_footer {
+				float: right;
+				clear: none;
+				width: 50%;
+				padding: 0 0 0 10px;
+			}
+		}
+	}
+}
+
 #wpc-online-footer {
-	background: #222; //rgba( 0, 0, 0, 0.15 );
-	padding: $wpc-main-desktop-padding;
-	color: #fff;
+	background: $wpc-footer-bg-color;
+	color: $wpc-footer-color;
 	font-size: 0.9em;
 	line-height: 1.8;
 	text-align: center;
+	padding: 40px;
 
 	a {
 		color: inherit;
@@ -17,7 +100,7 @@
 	.wpc-logo {
 		display: block;
 		opacity: $wpc-footer-opacity;
-		margin: 0 0 15px 0;
+		margin: 0 0 10px 0;
 
 		img {
 			height: 50px;
@@ -30,12 +113,14 @@
 
 	.wpc-footer-menu {
 		display: inline-block;
-		margin: 0;
+		margin: 0 0 15px 0;
 		border: 0;
 		padding: 0;
 		list-style: none;
 		overflow: auto;
 		text-align: center;
+		font-size: 0.95rem;
+		line-height: 1.3;
 
 		li {
 			display: block;

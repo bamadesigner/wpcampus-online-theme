@@ -61,9 +61,13 @@ function wpc_online_add_favicons() {
 	// Set the image sizes
 	$image_sizes = array( 57, 72, 76, 114, 120, 144, 152 );
 
-	foreach( $image_sizes as $size ) {
-		?><link rel="apple-touch-icon" sizes="<?php echo "{$size}x{$size}"; ?>" href="<?php echo $favicons_folder; ?>wpcampus-favicon-<?php echo $size; ?>.png"/><?php
-	}
+	foreach( $image_sizes as $size ) :
+
+		?>
+		<link rel="apple-touch-icon" sizes="<?php echo "{$size}x{$size}"; ?>" href="<?php echo $favicons_folder; ?>wpcampus-favicon-<?php echo $size; ?>.png"/>
+		<?php
+
+	endforeach;
 
 }
 
@@ -72,17 +76,17 @@ function wpc_online_add_favicons() {
  */
 function wpc_online_enqueue_styles_scripts() {
 
-	// Register our fonts
+	// Register our fonts.
 	// @TODO make sure we remove what we're not using
-	wp_register_style( 'wpc-online-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600' );
+	//wp_register_style( 'wpc-online-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600' );
 
-	// Add our main stylesheet
-	wp_enqueue_style( 'wpc-online', get_stylesheet_directory_uri() . '/assets/css/styles.css', array( 'wpc-online-fonts' ) );
+	// Add our main stylesheet.
+	wp_enqueue_style( 'wpc-online', get_stylesheet_directory_uri() . '/assets/css/styles.css', array(), null );
 
-	// Add our main script
+	// Add our main script.
 	wp_enqueue_script( 'wpc-online', get_stylesheet_directory_uri() . '/assets/js/wpcampus-online.min.js', array( 'jquery' ), null, true );
 
-	// Pass data
+	// Pass data to our script.
 	wp_localize_script( 'wpc-online', 'wpc_online', array(
 		'url'   => get_bloginfo( 'url' ),
 		'title' => get_bloginfo( 'name' ),
@@ -92,9 +96,153 @@ function wpc_online_enqueue_styles_scripts() {
 add_action( 'wp_enqueue_scripts', 'wpc_online_enqueue_styles_scripts' );
 
 /**
- * Add our rewrite rules.
+ * Filter the page title.
  */
-function wpc_online_add_rewrite_rules() {
-	add_rewrite_rule( '^(about|speakers|conduct|subscribe|contact)/?', 'index.php', 'top' );
+function wpc_online_filter_page_title( $title ) {
+
+	if ( is_404() ) {
+		return 'Page Not Found';
+	}
+
+	// Change the schedule page title.
+	if ( is_singular( 'schedule' ) ) {
+		return __( 'Schedule', 'wpc-online' ) . ' <a class="wpc-online-action" href="' . get_bloginfo('url') . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
+	}
+
+	return $title;
 }
-add_action('init', 'wpc_online_add_rewrite_rules' );
+add_filter( 'wpcampus_page_title', 'wpc_online_filter_page_title' );
+
+/**
+ * Add the schedule event title before the content.
+ */
+function wpc_online_add_schedule_event_title( $content ) {
+
+	// Add the schedule event title before the content.
+	if ( is_singular( 'schedule' ) ) {
+		return '<h2>' . get_the_title() . '</h2>' . $content;
+	}
+
+	return $content;
+}
+add_filter( 'the_content', 'wpc_online_add_schedule_event_title' );
+
+/**
+ * Get breadcrumbs.
+ */
+function wpc_online_get_breadcrumbs_html() {
+
+	/*
+	 * Build array of breadcrumbs.
+	 *
+	 * Start with home.
+	 */
+	$breadcrumbs = array(
+		array(
+			'url'   => get_bloginfo( 'url' ),
+			'label' => 'Home',
+		)
+	);
+
+	// Get post type.
+	$post_type = get_query_var( 'post_type' );
+
+	// Make sure its not an array.
+	if ( is_array( $post_type ) ) {
+		$post_type = reset( $post_type );
+	}
+
+	// Add archive(s).
+	if ( is_archive() ) {
+
+		// Add the archive breadcrumb.
+		if ( is_post_type_archive() ) {
+
+			// Get the info.
+			$post_type_archive_link = get_post_type_archive_link( $post_type );
+			$post_type_archive_title = post_type_archive_title( '', false );
+
+			// Add the breadcrumb.
+			if ( $post_type_archive_link && $post_type_archive_title ) {
+				$breadcrumbs[] = array( 'url' => $post_type_archive_link, 'label' => $post_type_archive_title );
+			}
+
+		}
+
+	} else {
+
+		// Add links to archive.
+		if ( is_singular() ) {
+
+			// Get the information.
+			$post_type_archive_link = get_post_type_archive_link( $post_type );
+			$post_type_archive_title = post_type_archive_title( '', false );
+
+			if ( $post_type_archive_link ) {
+				$breadcrumbs[] = array( 'url' => $post_type_archive_link, 'label' => $post_type_archive_title );
+			}
+		}
+
+		// Print info for the current post.
+		if ( ( $post = get_queried_object() ) && is_a( $post, 'WP_Post' ) ) {
+
+			// Get ancestors.
+			$post_ancestors = isset( $post ) ? get_post_ancestors( $post->ID ) : array();
+
+			// Add the ancestors.
+			foreach ( $post_ancestors as $post_ancestor_id ) {
+
+				// Add ancestor.
+				$breadcrumbs[] = array( 'ID' => $post_ancestor_id, 'url' => get_permalink( $post_ancestor_id ), 'label' => get_the_title( $post_ancestor_id ), );
+
+			}
+
+			// Add current page - if not home page.
+			if ( isset( $post ) ) {
+				$breadcrumbs[ 'current' ] = array( 'ID' => $post->ID, 'url' => get_permalink( $post ), 'label' => get_the_title( $post->ID ), );
+			}
+		}
+	}
+
+	// Build breadcrumbs HTML.
+	$breadcrumbs_html = null;
+
+	foreach( $breadcrumbs as $crumb_key => $crumb ) {
+
+		// Make sure we have what we need.
+		if ( empty( $crumb[ 'label' ] ) ) {
+			continue;
+		}
+
+		// If no string crumb key, set as ancestor.
+		if ( ! $crumb_key || is_numeric( $crumb_key ) ) {
+			$crumb_key = 'ancestor';
+		}
+
+		// Setup classes.
+		$crumb_classes = array( $crumb_key );
+
+		// Add if current.
+		if ( isset( $crumb[ 'current' ] ) && $crumb[ 'current' ] ) {
+			$crumb_classes[] = 'current';
+		}
+
+		$breadcrumbs_html .= '<li role="menuitem"' . ( ! empty( $crumb_classes ) ? ' class="' . implode( ' ', $crumb_classes ) . '"' : null ) . '>';
+
+		// Add URL and label.
+		if ( ! empty( $crumb[ 'url' ] ) ) {
+			$breadcrumbs_html .= '<a href="' . $crumb[ 'url' ] . '"' . ( ! empty( $crumb[ 'title' ] ) ? ' title="' . $crumb[ 'title' ] . '"' : null ) . '>' . $crumb[ 'label' ] . '</a>';
+		} else {
+			$breadcrumbs_html .= $crumb[ 'label' ];
+		}
+
+		$breadcrumbs_html .= '</li>';
+
+	}
+
+	// Wrap them in nav.
+	$breadcrumbs_html = '<div class="breadcrumbs-wrapper"><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">' . $breadcrumbs_html . '</nav></div>';
+
+	//  We change up the variable so it doesn't interfere with global variable.
+	return $breadcrumbs_html;
+}

@@ -14,8 +14,8 @@ var sassIncludes = [].concat(normalize, bourbon, neat);
 
 // Define the source paths for each file type
 var src = {
-    scss: './assets/scss/**/*',
-    js: './assets/js/wpcampus-online.js'
+    scss: 'assets/scss/**/*',
+    js: 'assets/js/wpcampus-online.js'
 };
 
 // Define the destination paths for each file type
@@ -58,4 +58,5 @@ gulp.task('watch', function() {
 });
 
 // Let's get this party started
-gulp.task('default', ['sass','js','watch']);
+gulp.task('default', ['compile']);
+gulp.task('compile', ['sass','js']);

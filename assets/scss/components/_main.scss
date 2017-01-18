@@ -1,16 +1,128 @@
-#wpc-online-content {
-	padding: $wpc-main-desktop-padding 0;
+#wpc-online-main-page-title {
+	background: $wpc-main-title-bg;
+	padding: 25px 0;
+	margin: 0;
+	text-align: left;
+
+	h1 {
+		text-transform: uppercase;
+		font-weight: 300;
+		margin: 0;
+		position: relative;
+
+		.wpc-online-action {
+			display: block;
+			text-transform: none;
+			font-size: 1.1rem;
+
+			@media screen and (min-width: 480px) {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+			}
+		}
+	}
+
+	.breadcrumbs-wrapper {
+		display: block;
+		float: right;
+		text-align: left;
+		color: #666;
+		font-size: 0.85rem;
+		line-height: 1.5;
+		margin: 15px 0 0 0;
+
+		.breadcrumbs {
+			display: block;
+			width: auto;
+			background: none;
+			margin: 0;
+
+			li {
+				display: inline-block;
+				list-style: none;
+
+				a {
+					color: inherit;
+				}
+
+				&:before {
+					content: '/';
+					margin: 0 10px;
+				}
+				
+				&:first-child:before {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&.has-breadcrumbs {
+		h1 {
+			display: inline-block;
+		}
+	}
+}
+
+#wpc-online-details {
+	background: rgba( #000, 0.07 );
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0;
+	padding: 20px 0;
+	text-align: left;
+	color: #222;
+
+	* {
+		margin: 0;
+	}
+
+	a {
+		color: inherit;
+		font-weight: bold;
+	}
 }
 
 #wpc-online-main {
+	background: $wpc-main-bg;
+	min-height: 200px;
+}
 
-	.inside {
-		padding: 0 $wpc-main-desktop-padding;
+#wpc-online-content {
+	padding: 30px 0;
+
+	.highlight {
+		font-size: 1.4rem;
+		line-height: 1.6;
+	}
+
+	ul, ol {
+
+		&.columns {
+
+			&.two {
+				overflow: auto;
+
+				li {
+					float: left;
+					width: 50%;
+				}
+			}
+		}
 	}
 
 	.panel {
+		padding: 20px;
+		margin: 1.5rem 0;
+		text-align: center;
 
-		&.red {
+		a {
+			color: inherit;
+		}
+
+		/*&.red {
 			background: #900;
 			color: #fff;
 			padding: 20px $wpc-main-desktop-padding;
@@ -19,11 +131,73 @@
 			a {
 				color: inherit;
 			}
+		}*/
+
+		&.gray {
+			background: rgba( #000, 0.07 );
+			color: #222;
+		}
+
+		&.blue {
+			background: $wpc-royal-blue;
+			color: #fff;
+		}
+
+		&.bigger {
+			font-size: 1.2rem;
+			line-height: 1.7;
 		}
 	}
 
-	@media screen and (min-width: $wpc-desktop-bp) {
-		min-height: 100%;
-		padding: 0 0 0 $wpc-nav-desktop-width;
+	.front-promo {
+
+		.front-promo-1 {
+			font-size: 1.3rem;
+			line-height: 1.7;
+			margin: 10px 0 0 0;
+			text-align: center;
+		}
+
+		.front-promo-2 {
+			font-size: 1.3rem;
+			line-height: 1.7;
+			text-align: center;
+			margin: 40px -40px 50px -40px;
+			padding: 20px 40px;
+		}
+
+		@media screen and (min-width: $wpc-banner-full) {
+
+			.front-promo-1 {
+				font-size: 1.5rem;
+				line-height: 1.8;
+				margin: 20px 0;
+			}
+
+			.front-promo-2 {
+				font-size: 1.6rem;
+				line-height: 1.8;
+				padding: 20px 10%;
+			}
+		}
+	}
+
+	.wpcampus-center {
+		text-align: center;
+
+		ul, ol {
+			text-align: left;
+
+			&.columns.two {
+
+				li {
+					width: 30%;
+
+					&:nth-child(odd) {
+						margin-left: 25%;
+					}
+				}
+			}
+		}
 	}
 }

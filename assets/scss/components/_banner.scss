@@ -1,0 +1,122 @@
+#wpc-online-banner {
+	background: url( '../images/wpcampus-tile-BG.jpg' ) center center;
+	background-size: auto 150%;
+	height: $wpc-banner-height;
+	overflow: hidden;
+	//box-shadow: inset 0 0 15px #000;
+	z-index: 0;
+	position: relative;
+	border-bottom: 2px solid #fff;
+
+	&:before {
+		content: '';
+		background: rgba( 0, 0, 0, 0.65 );
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+
+	.inside {
+		height: $wpc-banner-height;
+		overflow: visible;
+	}
+
+	.wpc-online-logo {
+		display: block;
+		background: #fff;
+		width: auto;
+		height: $wpc-banner-height;
+		padding: 0;
+		margin: 0 auto;
+		position: relative;
+
+		img {
+			display: block;
+			margin: 0 auto;
+			width: 80%;
+			height: auto;
+			max-height: 80%;
+			max-width: 250px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
+
+	.banner-text {
+		display: none;
+		float: left;
+		width: 55%;
+		height: $wpc-banner-height;
+		color: #fff;
+		font-size: 1.2rem;
+		line-height: 1.3;
+		text-align: left;
+		position: relative;
+		padding: 0 0 0 25px;
+
+		.date {
+			display: none;
+			font-size: 1.1rem;
+		}
+
+		.tagline {
+			display: block;
+			position: absolute;
+			left: 25px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	@media screen and (min-width: 500px) {
+
+		.wpc-online-logo {
+			float: left;
+			width: 45%;
+			margin: 0 0 0 -25px;
+
+			&:before {
+				content: '';
+				background: $wpc-royal-blue;
+				position: absolute;
+				right: 100%;
+				top: 0;
+				width: 20000px;
+				height: 100%;
+				z-index: -1;
+			}
+		}
+
+		.banner-text {
+			display: block;
+		}
+	}
+
+	@media screen and (min-width: $wpc-banner-full) {
+
+		.wpc-online-logo {
+			width: 270px;
+		}
+
+		.banner-text {
+			width: auto;
+			font-size: 1.6rem;
+			line-height: 1.5;
+			padding: 28px 20px 0 25px;
+
+			.date {
+				display: block;
+			}
+
+			.tagline {
+				position: static;
+				transform: none;
+			}
+		}
+	}
+}
