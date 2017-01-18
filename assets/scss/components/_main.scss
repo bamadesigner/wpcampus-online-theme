@@ -12,12 +12,15 @@
 
 		.wpc-online-action {
 			display: block;
-			position: absolute;
-			top: 50%;
-			right: 0;
-			transform: translateY(-50%);
 			text-transform: none;
 			font-size: 1.1rem;
+
+			@media screen and (min-width: 480px) {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+			}
 		}
 	}
 
