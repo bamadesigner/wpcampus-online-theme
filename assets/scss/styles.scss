@@ -95,18 +95,29 @@ img {
 	}
 }
 
+#wpc-crowdcast-schedule {
+
+	.schedule-header {
+		display: none;
+	}
+
+	body.page-template-page-watch & {
+		@include inside();
+	}
+}
+
 #wpc-online-coc {
 	border-top: 1px solid rgba(0,0,0,0.1);
 	margin-top: 40px;
 	padding-top: 30px;
 
 	#conference-schedule-container + &,
-	#wpc-crowdcast + & {
+	body.page-template-page-watch & {
 		border-top: 0;
 		padding-top: 0;
 	}
 
-	#wpc-crowdcast + & {
+	body.page-template-page-watch & {
 		@include inside();
 	}
 }

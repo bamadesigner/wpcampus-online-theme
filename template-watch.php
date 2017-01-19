@@ -4,6 +4,9 @@
 
 global $post;
 
+// Make sure the schedule knows to load.
+conference_schedule()->load_schedule();
+
 get_header();
 
 // Get the crowdcast embed source.
@@ -25,6 +28,19 @@ $crowdcast_embed_src = get_post_meta( $post->ID, 'crowdcast_embed_src', true );
 		?>
 		<div id="wpc-crowdcast">
 			<iframe frameborder="0" marginheight="0" marginwidth="0" allowtransparency="true" src="<?php echo $crowdcast_embed_src; ?>"></iframe>
+		</div>
+		<?php
+
+	endif;
+
+	// Print the schedule.
+	$schedule = do_shortcode( '[print_conference_schedule]' );
+	if ( ! empty( $schedule ) ) :
+
+		?>
+		<div id="wpc-crowdcast-schedule">
+			<h2><?php _e( "What's Up Next", 'wpc-online' ); ?></h2>
+			<?php echo $schedule; ?>
 		</div>
 		<?php
 
