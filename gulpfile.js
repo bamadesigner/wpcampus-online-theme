@@ -15,7 +15,7 @@ var sassIncludes = [].concat(normalize, bourbon, neat);
 
 // Define the source paths for each file type
 var src = {
-    scss: 'assets/scss/**/*',
+    scss: ['assets/scss/**/*','!assets/scss/components'],
     js: 'assets/js/wpcampus-online.js',
     php: ['**/*.php','!vendor/**','!node_modules/**']
 };
