@@ -61,7 +61,7 @@ function wpc_online_add_favicons() {
 	// Set the image sizes
 	$image_sizes = array( 57, 72, 76, 114, 120, 144, 152 );
 
-	foreach( $image_sizes as $size ) :
+	foreach ( $image_sizes as $size ) :
 
 		?>
 		<link rel="apple-touch-icon" sizes="<?php echo "{$size}x{$size}"; ?>" href="<?php echo $favicons_folder; ?>wpcampus-favicon-<?php echo $size; ?>.png"/>
@@ -106,11 +106,11 @@ function wpc_online_filter_page_title( $title ) {
 
 	// Modify page titles
 	if ( is_singular( 'schedule' ) ) {
-		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action" href="' . get_bloginfo('url') . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action" href="' . get_bloginfo( 'url' ) . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
 	} elseif ( is_page( 'watch/room-1' ) ) {
-		return '<span class="wpc-title-with-action">' .$title . '</span><a class="wpc-online-action" href="' . get_bloginfo('url') . '/watch/room-2/">' . __( 'Watch Room Two', 'wpc-online' ) . '</a>';
-    } elseif ( is_page( 'watch/room-2' ) ) {
-		return '<span class="wpc-title-with-action">' .$title . '</span><a class="wpc-online-action" href="' . get_bloginfo('url') . '/watch/room-1/">' . __( 'Watch Room One', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action" href="' . get_bloginfo( 'url' ) . '/watch/room-2/">' . __( 'Watch Room Two', 'wpc-online' ) . '</a>';
+	} elseif ( is_page( 'watch/room-2' ) ) {
+		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action" href="' . get_bloginfo( 'url' ) . '/watch/room-1/">' . __( 'Watch Room One', 'wpc-online' ) . '</a>';
 	}
 
 	return $title;
@@ -144,8 +144,8 @@ function wpc_online_get_breadcrumbs_html() {
 	$breadcrumbs = array(
 		array(
 			'url'   => get_bloginfo( 'url' ),
-			'label' => 'Home',
-		)
+			'label' => __( 'Home', 'wpc-online' ),
+		),
 	);
 
 	// Get post type.
@@ -168,11 +168,12 @@ function wpc_online_get_breadcrumbs_html() {
 
 			// Add the breadcrumb.
 			if ( $post_type_archive_link && $post_type_archive_title ) {
-				$breadcrumbs[] = array( 'url' => $post_type_archive_link, 'label' => $post_type_archive_title );
+				$breadcrumbs[] = array(
+					'url'   => $post_type_archive_link,
+					'label' => $post_type_archive_title,
+				);
 			}
-
 		}
-
 	} else {
 
 		// Add links to archive.
@@ -197,13 +198,21 @@ function wpc_online_get_breadcrumbs_html() {
 			foreach ( $post_ancestors as $post_ancestor_id ) {
 
 				// Add ancestor.
-				$breadcrumbs[] = array( 'ID' => $post_ancestor_id, 'url' => get_permalink( $post_ancestor_id ), 'label' => get_the_title( $post_ancestor_id ), );
+				$breadcrumbs[] = array(
+					'ID'    => $post_ancestor_id,
+					'url'   => get_permalink( $post_ancestor_id ),
+					'label' => get_the_title( $post_ancestor_id ),
+				);
 
 			}
 
 			// Add current page - if not home page.
 			if ( isset( $post ) ) {
-				$breadcrumbs[ 'current' ] = array( 'ID' => $post->ID, 'url' => get_permalink( $post ), 'label' => get_the_title( $post->ID ), );
+				$breadcrumbs['current'] = array(
+					'ID'    => $post->ID,
+					'url'   => get_permalink( $post ),
+					'label' => get_the_title( $post->ID ),
+				);
 			}
 		}
 	}
@@ -211,10 +220,10 @@ function wpc_online_get_breadcrumbs_html() {
 	// Build breadcrumbs HTML.
 	$breadcrumbs_html = null;
 
-	foreach( $breadcrumbs as $crumb_key => $crumb ) {
+	foreach ( $breadcrumbs as $crumb_key => $crumb ) {
 
 		// Make sure we have what we need.
-		if ( empty( $crumb[ 'label' ] ) ) {
+		if ( empty( $crumb['label'] ) ) {
 			continue;
 		}
 
@@ -227,17 +236,17 @@ function wpc_online_get_breadcrumbs_html() {
 		$crumb_classes = array( $crumb_key );
 
 		// Add if current.
-		if ( isset( $crumb[ 'current' ] ) && $crumb[ 'current' ] ) {
+		if ( isset( $crumb['current'] ) && $crumb['current'] ) {
 			$crumb_classes[] = 'current';
 		}
 
 		$breadcrumbs_html .= '<li role="menuitem"' . ( ! empty( $crumb_classes ) ? ' class="' . implode( ' ', $crumb_classes ) . '"' : null ) . '>';
 
 		// Add URL and label.
-		if ( ! empty( $crumb[ 'url' ] ) ) {
-			$breadcrumbs_html .= '<a href="' . $crumb[ 'url' ] . '"' . ( ! empty( $crumb[ 'title' ] ) ? ' title="' . $crumb[ 'title' ] . '"' : null ) . '>' . $crumb[ 'label' ] . '</a>';
+		if ( ! empty( $crumb['url'] ) ) {
+			$breadcrumbs_html .= '<a href="' . $crumb['url'] . '"' . ( ! empty( $crumb['title'] ) ? ' title="' . $crumb['title'] . '"' : null ) . '>' . $crumb['label'] . '</a>';
 		} else {
-			$breadcrumbs_html .= $crumb[ 'label' ];
+			$breadcrumbs_html .= $crumb['label'];
 		}
 
 		$breadcrumbs_html .= '</li>';

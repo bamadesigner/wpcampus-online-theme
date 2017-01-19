@@ -21,18 +21,22 @@ $tweets = array(
 	'https://twitter.com/wpcampusorg/status/790945782803202049',
 );
 
-// Make sure we don't have duplicates
+// Make sure we don't have duplicates.
 $tweets = array_unique( $tweets );
 
 ?>
 <div class="wpc-online-tweets">
 	<?php
 
-	foreach( $tweets as $tweet ) { ?>
+	foreach ( $tweets as $tweet ) :
+
+		?>
 		<div class="wpc-tweet">
 			<?php echo wp_oembed_get( $tweet ); ?>
 		</div>
-	<?php }
+		<?php
+
+	endforeach;
 
 	?>
 </div>
