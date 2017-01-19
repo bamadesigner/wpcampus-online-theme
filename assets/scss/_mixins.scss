@@ -8,3 +8,11 @@
 	width: 1px;
 	overflow: hidden;
 }
+
+@mixin inside() {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 40px;
+	overflow: visible;
+}
