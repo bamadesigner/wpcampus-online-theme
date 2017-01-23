@@ -59,7 +59,15 @@ $blog_url = get_bloginfo( 'url' );
 		</div>
 		<div id="wpc-online-details">
 			<div class="inside">
-				<p>Will take place Monday, January 23, 2017 from 9 a.m. to 5 p.m. CST. Free of charge. There will be 2 rooms and <a href="https://online.wpcampus.org/schedule/">16 sessions</a>. We hope you can join us!</p>
+				<p><strong>WPCampus is happening now from 9 a.m. to 5 p.m. CST.</strong> Free of charge. There are <a href="<?php echo $blog_url; ?>/watch/">2 rooms</a> and <a href="<?php echo $blog_url; ?>/schedule/">16 sessions</a>. <?php
+
+					if ( is_page( 'watch' ) ) :
+						?>We hope you can join us!<?php
+					else :
+						?><a class="wpc-details-action" href="<?php echo $blog_url; ?>/watch"><strong>Watch WPCampus Online</strong></a><?php
+					endif;
+
+				?></p>
 			</div>
 		</div>
 		<?php

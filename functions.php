@@ -46,9 +46,6 @@ add_action( 'after_setup_theme', 'wpc_online_theme_setup' );
 /**
  * Load favicons.
  */
-add_action( 'wp_head', 'wpc_online_add_favicons' );
-add_action( 'admin_head', 'wpc_online_add_favicons' );
-add_action( 'login_head', 'wpc_online_add_favicons' );
 function wpc_online_add_favicons() {
 
 	// Set the images folder
@@ -70,14 +67,20 @@ function wpc_online_add_favicons() {
 	endforeach;
 
 }
+add_action( 'wp_head', 'wpc_online_add_favicons' );
+add_action( 'admin_head', 'wpc_online_add_favicons' );
+add_action( 'login_head', 'wpc_online_add_favicons' );
 
 /**
  * Enqueue front styles and scripts.
  */
 function wpc_online_enqueue_styles_scripts() {
 
-	// Register our fonts.
-	// @TODO make sure we remove what we're not using
+	/*
+	 * Register our fonts.
+	 *
+	 * @TODO make sure we remove what we're not using.
+	 */
 	//wp_register_style( 'wpc-online-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600' );
 
 	// Add our main stylesheet.
@@ -106,11 +109,11 @@ function wpc_online_filter_page_title( $title ) {
 
 	// Modify page titles
 	if ( is_singular( 'schedule' ) ) {
-		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action" href="' . get_bloginfo( 'url' ) . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . __( 'Schedule', 'wpc-online' ) . '</span><a class="wpc-online-action" href="' . get_bloginfo( 'url' ) . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
 	} elseif ( is_page( 'watch/room-1' ) ) {
-		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action" href="' . get_bloginfo( 'url' ) . '/watch/room-2/">' . __( 'Watch Room Two', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action join-room-action" href="' . get_bloginfo( 'url' ) . '/watch/room-2/">' . __( 'Join Room Two', 'wpc-online' ) . '</a>';
 	} elseif ( is_page( 'watch/room-2' ) ) {
-		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action" href="' . get_bloginfo( 'url' ) . '/watch/room-1/">' . __( 'Watch Room One', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action join-room-action" href="' . get_bloginfo( 'url' ) . '/watch/room-1/">' . __( 'Join Room One', 'wpc-online' ) . '</a>';
 	}
 
 	return $title;
@@ -271,3 +274,61 @@ function wpc_online_print_coc() {
 	<?php
 
 }
+
+// Add the main watch content.
+function wpc_online_print_main_watch_page( $content ) {
+
+	// Only add to the main watch page.
+	if ( is_page( 'watch' ) ) {
+
+		ob_start();
+
+		?>
+		<div class="wpc-join-room-buttons">
+			<div class="wpc-join-room-button">
+				<a href="<?php echo get_bloginfo( 'url' ); ?>/watch/room-1/"><span><?php echo _e( 'Join Room 1', 'wpc-online' ); ?></span></a>
+			</div>
+			<div class="wpc-join-room-button">
+				<a href="<?php echo get_bloginfo( 'url' ); ?>/watch/room-2/"><span><?php echo _e( 'Join Room 2', 'wpc-online' ); ?></span></a>
+			</div>
+		</div>
+		<?php
+
+		$content .= ob_get_clean();
+
+	}
+
+	return $content;
+}
+add_filter( 'the_content', 'wpc_online_print_main_watch_page' );
+
+// Filter the locations permalink.
+function wpc_online_filter_post_type_link( $post_link, $post, $leavename, $sample ) {
+
+	if ( 8 == $post->ID ) {
+		return get_bloginfo( 'url' ) . '/watch/room-1/';
+	} elseif ( 10 == $post->ID ) {
+		return get_bloginfo( 'url' ) . '/watch/room-2/';
+	}
+
+	return $post_link;
+}
+add_filter( 'post_type_link', 'wpc_online_filter_post_type_link', 100, 4 );
+
+// Filter the livestream URL
+function wpc_online_filter_livestream_url( $livestream_url, $post ) {
+
+	// Get location.
+	if ( class_exists( 'Conference_Schedule_Event' ) ) {
+
+		$event = new Conference_Schedule_Event( $post->ID );
+		$event_location = $event->get_location();
+
+		if ( ! empty( $event_location->permalink ) ) {
+			return $event_location->permalink;
+		}
+	}
+
+	return $livestream_url;
+}
+add_filter( 'conf_sch_livestream_url', 'wpc_online_filter_livestream_url', 100, 2 );

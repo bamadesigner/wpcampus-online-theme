@@ -14,13 +14,24 @@
 			display: block;
 			text-transform: none;
 			font-size: 1.1rem;
+
+			&.join-room-action {
+				background: #900;
+				color: #fff;
+				padding: 10px 15px;
+				margin: 10px 0 0 0;
+
+				&:hover {
+					background: darken( #900, 10% );
+				}
+			}
 		}
 
 		@media screen and (min-width: 480px) {
 
 			.wpc-title-with-action {
 				display: block;
-				padding-right: 20%;
+				padding-right: 30%;
 			}
 
 			.wpc-online-action {
@@ -28,6 +39,7 @@
 				top: 50%;
 				right: 0;
 				transform: translateY(-50%);
+				margin: 0 !important;
 			}
 		}
 	}
@@ -75,7 +87,7 @@
 }
 
 #wpc-online-details {
-	background: rgba( #000, 0.07 );
+	background: rgba( 0, 128, 0, 0.07 );
 	font-size: 1rem;
 	line-height: 1.6;
 	margin: 0;
@@ -90,6 +102,15 @@
 	a {
 		color: inherit;
 		font-weight: bold;
+	}
+
+	.wpc-details-action {
+		display: inline-block;
+		background: rgba( 0, 128, 0, 0.9 );
+		padding: 6px 12px;
+		color: #fff;
+		text-align: center;
+		margin: 0 0 0 8px;
 	}
 }
 
