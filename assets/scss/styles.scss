@@ -84,17 +84,17 @@ img {
 	}
 }
 
-.wpc-join-room-buttons {
+.wpc-watch-buttons {
 	overflow: auto;
 
-	.wpc-join-room-button {
+	.wpc-button {
 		color: #fff;
 		text-align: center;
 		font-size: 2rem;
 		line-height: 1.2;
 		text-transform: uppercase;
 		font-weight: 300;
-		margin: 20px 0 0 0;
+		margin: 0;
 
 		a {
 			display: block;
@@ -114,15 +114,15 @@ img {
 			}
 		}
 
-		&:first-child {
-			margin-top: 0;
+		&.two {
+			margin: 20px 0 0 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
 		}
 
 		@media screen and (min-width:800px) {
-			float: left;
-			width: 50%;
-			padding-left: 15px;
-			margin: 0;
 
 			a {
 				min-height: 200px;
@@ -137,9 +137,16 @@ img {
 				}
 			}
 
-			&:nth-child(odd) {
-				padding-left: 0;
-				padding-right: 0;
+			&.two {
+				float: left;
+				width: 50%;
+				padding-left: 15px;
+				margin: 0;
+
+				&:nth-child(odd) {
+					padding-left: 0;
+					padding-right: 0;
+				}
 			}
 		}
 	}

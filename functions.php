@@ -284,12 +284,9 @@ function wpc_online_print_main_watch_page( $content ) {
 		ob_start();
 
 		?>
-		<div class="wpc-join-room-buttons">
-			<div class="wpc-join-room-button">
-				<a href="<?php echo get_bloginfo( 'url' ); ?>/watch/room-1/"><span><?php echo _e( 'Join Room 1', 'wpc-online' ); ?></span></a>
-			</div>
-			<div class="wpc-join-room-button">
-				<a href="<?php echo get_bloginfo( 'url' ); ?>/watch/room-2/"><span><?php echo _e( 'Join Room 2', 'wpc-online' ); ?></span></a>
+		<div class="wpc-watch-buttons">
+			<div class="wpc-button">
+				<a href="<?php echo get_bloginfo( 'url' ); ?>/schedule/"><span><?php echo _e( 'Watch the recorded sessions', 'wpc-online' ); ?></span></a>
 			</div>
 		</div>
 		<?php
