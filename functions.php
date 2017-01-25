@@ -275,30 +275,6 @@ function wpc_online_print_coc() {
 
 }
 
-// Add the main watch content.
-function wpc_online_print_main_watch_page( $content ) {
-
-	// Only add to the main watch page.
-	if ( is_page( 'watch' ) ) {
-
-		ob_start();
-
-		?>
-		<div class="wpc-watch-buttons">
-			<div class="wpc-button">
-				<a href="<?php echo get_bloginfo( 'url' ); ?>/schedule/"><span><?php echo _e( 'Watch the recorded sessions', 'wpc-online' ); ?></span></a>
-			</div>
-		</div>
-		<?php
-
-		$content .= ob_get_clean();
-
-	}
-
-	return $content;
-}
-add_filter( 'the_content', 'wpc_online_print_main_watch_page' );
-
 // Filter the locations permalink.
 function wpc_online_filter_post_type_link( $post_link, $post, $leavename, $sample ) {
 
