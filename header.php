@@ -61,10 +61,8 @@ $blog_url = get_bloginfo( 'url' );
 			<div class="inside">
 				<p><strong>The inaugural WPCampus Online has wrapped!</strong> <a href="<?php echo $blog_url; ?>/thank-you/">Thank you</a> to everyone who brought it to life. <?php
 
-					if ( is_page( 'schedule' ) ) :
-						?>View each session to watch it's video.<?php
-					else :
-						?><a class="wpc-details-action" href="<?php echo $blog_url; ?>/schedule/"><strong>Watch the recorded sessions</strong></a><?php
+					if ( ! is_page( 'watch' ) ) :
+						?><a class="wpc-details-action" href="<?php echo $blog_url; ?>/watch/"><strong>Watch the sessions</strong></a><?php
 					endif;
 
 				?></p>
