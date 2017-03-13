@@ -59,13 +59,7 @@ $blog_url = get_bloginfo( 'url' );
 		</div>
 		<div id="wpc-online-details">
 			<div class="inside">
-				<p><strong>The inaugural WPCampus Online has wrapped!</strong> <a href="<?php echo $blog_url; ?>/thank-you/">Thank you</a> to everyone who brought it to life. <?php
-
-					if ( ! is_page( 'watch' ) ) :
-						?><a class="wpc-details-action" href="<?php echo $blog_url; ?>/watch/"><strong>Watch the sessions</strong></a><?php
-					endif;
-
-				?></p>
+				<p><strong>The WPCampus 2017 <a href="https://2017.wpcampus.org/call-for-speakers/">call for speakers</a> is open until March 24, 2017.</strong><br />Share your WordPress and higher ed knowledge with our community.<br /><a style="margin-top:5px;" class="wpc-details-action" href="https://2017.wpcampus.org/call-for-speakers/"><strong>Apply to speak at WPCampus 2017</strong></a></p>
 			</div>
 		</div>
 		<?php
