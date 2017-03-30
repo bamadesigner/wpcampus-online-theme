@@ -16,7 +16,7 @@ var sassIncludes = [].concat(normalize, bourbon, neat);
 // Define the source paths for each file type
 var src = {
     scss: ['assets/scss/**/*','!assets/scss/components'],
-    js: 'assets/js/wpcampus-online.js',
+	js: ['assets/js/**/*','!assets/js/*.min.js'],
     php: ['**/*.php','!vendor/**','!node_modules/**']
 };
 
@@ -24,7 +24,7 @@ var src = {
 var dest = {
 	scss: './assets/css',
 	js: './assets/js'
-}
+};
 
 // Sass is pretty awesome, right?
 gulp.task('sass', function() {
@@ -70,6 +70,12 @@ gulp.task('watch', function() {
 });
 
 // Let's get this party started
-gulp.task('default', ['compile']);
+gulp.task('default', ['copyassets','compile']);
 gulp.task('compile', ['sass','js']);
 gulp.task('test', ['php']);
+
+// Copies assets we need from our packages
+gulp.task('copyassets', function() {
+	gulp.src('./node_modules/mustache/mustache.min.js')
+		.pipe(gulp.dest('assets/js'));
+});

@@ -86,33 +86,6 @@
 	}
 }
 
-#wpc-online-details {
-	background: rgba( 0, 128, 0, 0.07 );
-	font-size: 1rem;
-	line-height: 1.6;
-	margin: 0;
-	padding: 20px 0;
-	text-align: center;
-	color: #222;
-
-	* {
-		margin: 0;
-	}
-
-	a {
-		color: inherit;
-	}
-
-	.wpc-details-action {
-		display: inline-block;
-		background: rgba( 0, 128, 0, 0.9 );
-		padding: 6px 12px;
-		color: #fff;
-		text-align: center;
-		margin: 0 0 0 8px;
-	}
-}
-
 #wpc-online-main {
 	background: $wpc-main-bg;
 	min-height: 200px;

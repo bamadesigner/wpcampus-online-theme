@@ -57,12 +57,10 @@ $blog_url = get_bloginfo( 'url' );
 				</div>
 			</div>
 		</div>
-		<div id="wpc-online-details">
-			<div class="inside">
-				<p><strong>The WPCampus 2017 <a href="https://2017.wpcampus.org/call-for-speakers/">call for speakers</a> is open until March 24, 2017.</strong><br />Share your WordPress and higher ed knowledge with our community.<br /><a style="margin-top:5px;" class="wpc-details-action" href="https://2017.wpcampus.org/call-for-speakers/"><strong>Apply to speak at WPCampus 2017</strong></a></p>
-			</div>
-		</div>
 		<?php
+
+		// Include notifications.
+		require( STYLESHEETPATH . '/partials/notification.html' );
 
 		if ( ! is_front_page() ) :
 

@@ -76,6 +76,9 @@ add_action( 'login_head', 'wpc_online_add_favicons' );
  */
 function wpc_online_enqueue_styles_scripts() {
 
+	// Get the directory.
+	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
+
 	/*
 	 * Register our fonts.
 	 *
@@ -84,16 +87,22 @@ function wpc_online_enqueue_styles_scripts() {
 	//wp_register_style( 'wpc-online-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600' );
 
 	// Add our main stylesheet.
-	wp_enqueue_style( 'wpc-online', get_stylesheet_directory_uri() . '/assets/css/styles.css', array(), null );
+	wp_enqueue_style( 'wpc-online', $wpcampus_dir . 'assets/css/styles.css', array(), null );
 
 	// Add our main script.
-	wp_enqueue_script( 'wpc-online', get_stylesheet_directory_uri() . '/assets/js/wpcampus-online.min.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'wpc-online', $wpcampus_dir . 'assets/js/wpcampus-online.min.js', array( 'jquery' ), null, true );
 
 	// Pass data to our script.
 	wp_localize_script( 'wpc-online', 'wpc_online', array(
 		'url'   => get_bloginfo( 'url' ),
 		'title' => get_bloginfo( 'name' ),
 	));
+
+	// Register mustache.
+	wp_register_script( 'mustache', $wpcampus_dir . 'assets/js/mustache.min.js', array(), true );
+
+	// Enqueue the notifications script- goes in footer.
+	wp_enqueue_script( 'wpcampus-notifications', $wpcampus_dir . 'assets/js/wpcampus-notifications.min.js', array( 'jquery', 'mustache' ), null, true );
 
 }
 add_action( 'wp_enqueue_scripts', 'wpc_online_enqueue_styles_scripts' );
