@@ -70,12 +70,6 @@ gulp.task('watch', function() {
 });
 
 // Let's get this party started
-gulp.task('default', ['copyassets','compile']);
+gulp.task('default', ['compile']);
 gulp.task('compile', ['sass','js']);
 gulp.task('test', ['php']);
-
-// Copies assets we need from our packages
-gulp.task('copyassets', function() {
-	gulp.src('./node_modules/mustache/mustache.min.js')
-		.pipe(gulp.dest('assets/js'));
-});

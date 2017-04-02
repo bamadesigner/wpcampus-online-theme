@@ -98,12 +98,6 @@ function wpc_online_enqueue_styles_scripts() {
 		'title' => get_bloginfo( 'name' ),
 	));
 
-	// Register mustache.
-	wp_register_script( 'mustache', $wpcampus_dir . 'assets/js/mustache.min.js', array(), true );
-
-	// Enqueue the notifications script- goes in footer.
-	wp_enqueue_script( 'wpcampus-notifications', $wpcampus_dir . 'assets/js/wpcampus-notifications.min.js', array( 'jquery', 'mustache' ), null, true );
-
 }
 add_action( 'wp_enqueue_scripts', 'wpc_online_enqueue_styles_scripts' );
 
