@@ -60,7 +60,7 @@ $blog_url = get_bloginfo( 'url' );
 		<?php
 
 		// Include notifications.
-		require( STYLESHEETPATH . '/partials/notification.html' );
+		require( STYLESHEETPATH . '/partials/notifications.html' );
 
 		if ( ! is_front_page() ) :
 
