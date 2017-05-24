@@ -1,8 +1,10 @@
 <div id="wpc-notifications"></div>
 <script id="wpc-notification-template" type="x-tmpl-mustache">
-    <div id="wpc-notification">
-        <div class="inside">
-            {{#.}}{{{content.rendered}}}{{/.}}
-        </div>
-    </div>
+	{{#.}}
+	    <div id="wpc-notification">
+	        <div class="inside">
+	            {{{content.rendered}}}
+	        </div>
+	    </div>
+	{{/.}}
 </script>
