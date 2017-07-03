@@ -352,7 +352,7 @@ function wpcampus_online_print_2017_callout() {
 	?>
 	<div class="panel gray" style="text-align:center;margin:20px 0 40px 0;padding-bottom:10px;">
 		<h2>WPCampus 2017 Conference on July 14-15</h2>
-		<p><a href="https://2017.wpcampus.org/" style="color:inherit;">WPCampus 2017</a> will take place July 14-15 on the campus of Canisius College in Buffalo, New York. If you can't join us in person, sessions will be live-streamed and made available online after the event. <strong>Tickets are available until June 30.</strong></p>
+		<p><a href="https://2017.wpcampus.org/" style="color:inherit;">WPCampus 2017</a> will take place July 14-15 on the campus of Canisius College in Buffalo, New York. <strong>Ticket sales have closed</strong> but, if you can't join us in person, all sessions will be live-streamed and made available online after the event. Gather with other WordPress users on your campus and create your own WPCampus experience!</p>
 		<a class="button panel blue block" style="margin-bottom:0;font-weight:bold;font-size:110%;background:#770000;display:block;" href="https://2017.wpcampus.org/">Visit the WPCampus 2017 website</a>
 	</div>
 	<?php
