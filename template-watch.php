@@ -39,7 +39,7 @@ $crowdcast_embed_src = get_post_meta( $post->ID, 'crowdcast_embed_src', true );
 
 		?>
 		<div id="wpc-crowdcast-schedule">
-			<h2><?php _e( "What's Up Next", 'wpc-online' ); ?></h2>
+			<h2><?php _e( "What's Up Next", 'wpcampus' ); ?></h2>
 			<?php echo $schedule; ?>
 		</div>
 		<?php

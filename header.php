@@ -3,9 +3,6 @@
 // Get the theme directory.
 $theme_dir = trailingslashit( get_stylesheet_directory_uri() );
 
-// Get the blog URL.
-$blog_url = get_bloginfo( 'url' );
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -20,10 +17,10 @@ $blog_url = get_bloginfo( 'url' );
 
 		<div id="wpc-online-banner">
 			<div class="inside">
-				<a class="wpc-online-logo" href="<?php echo $blog_url; ?>"><img src="<?php echo $theme_dir; ?>assets/images/wpcampus-online-logo.svg" alt="WPCampus Online: Where WordPress Meets Higher Education" /></a>
+				<a class="wpc-online-logo" href="/"><img src="<?php echo $theme_dir; ?>assets/images/wpcampus-online-logo.svg" alt="WPCampus Online: Where WordPress Meets Higher Education" /></a>
 				<div class="banner-text">
-					<span class="date"><?php _e( 'Join us online Monday, January 23, 2017 at 9 a.m. CST', 'wpc-online' ); ?></span>
-					<span class="tagline"><?php printf( __( 'A Virtual Conference for %s in Higher Education', 'wpc-online' ), 'WordPress' ); ?></span>
+					<span class="date"><?php _e( 'Join us online Tuesday, January 30, 2018', 'wpcampus' ); ?></span>
+					<span class="tagline"><?php printf( __( 'A Virtual Conference for %s in Higher Education', 'wpcampus' ), 'WordPress' ); ?></span>
 				</div>
 				<div style="clear:both;"></div>
 			</div>
@@ -36,8 +33,8 @@ $blog_url = get_bloginfo( 'url' );
 						<div class="bar two"></div>
 						<div class="bar three"></div>
 					</div>
-					<div class="open-menu-label"><?php _e( 'Menu', 'wpc-online' ); ?></div>
-					<div class="close-menu-label"><?php _e( 'Close', 'wpc-online' ); ?></div>
+					<div class="open-menu-label"><?php _e( 'Menu', 'wpcampus' ); ?></div>
+					<div class="close-menu-label"><?php _e( 'Close', 'wpcampus' ); ?></div>
 				</div>
 				<?php
 

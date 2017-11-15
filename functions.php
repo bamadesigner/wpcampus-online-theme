@@ -9,7 +9,7 @@
 function wpc_online_theme_setup() {
 
 	// Make theme available for translation
-	load_theme_textdomain( 'wpc-online', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'wpcampus', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -25,8 +25,8 @@ function wpc_online_theme_setup() {
 
 	// Register menu locations.
 	register_nav_menus( array(
-		'primary'   => __( 'Primary Menu', 'wpc-online' ),
-		'footer'    => __( 'Footer Menu', 'wpc-online' ),
+		'primary'   => __( 'Primary Menu', 'wpcampus' ),
+		'footer'    => __( 'Footer Menu', 'wpcampus' ),
 	));
 
 	/*
@@ -96,7 +96,7 @@ function wpc_online_enqueue_styles_scripts() {
 
 	// Pass data to our script.
 	wp_localize_script( 'wpc-online', 'wpc_online', array(
-		'url'   => get_bloginfo( 'url' ),
+		'url'   => '/',
 		'title' => get_bloginfo( 'name' ),
 	));
 }
@@ -113,11 +113,13 @@ function wpc_online_filter_page_title( $title ) {
 
 	// Modify page titles
 	if ( is_singular( 'schedule' ) ) {
-		return '<span class="wpc-title-with-action">' . __( 'Schedule', 'wpc-online' ) . '</span><a class="wpc-online-action" href="' . get_bloginfo( 'url' ) . '/schedule/">' . __( 'View the full schedule', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . __( 'Schedule', 'wpcampus' ) . '</span><a class="wpc-online-action" href="/schedule/">' . __( 'View the full schedule', 'wpcampus' ) . '</a>';
+	} elseif ( is_post_type_archive( 'speakers' ) ) {
+		return '<span class="wpc-title-with-action">' . __( 'Speakers', 'wpcampus' ) . '</span><a class="wpc-online-action" href="/schedule/">' . __( 'View the full schedule', 'wpcampus' ) . '</a>';
 	} elseif ( is_page( 'watch/room-1' ) ) {
-		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action join-room-action" href="' . get_bloginfo( 'url' ) . '/watch/room-2/">' . __( 'Join Room Two', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action join-room-action" href="/watch/room-2/">' . __( 'Join Room Two', 'wpcampus' ) . '</a>';
 	} elseif ( is_page( 'watch/room-2' ) ) {
-		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action join-room-action" href="' . get_bloginfo( 'url' ) . '/watch/room-1/">' . __( 'Join Room One', 'wpc-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action join-room-action" href="/watch/room-1/">' . __( 'Join Room One', 'wpcampus' ) . '</a>';
 	}
 
 	return $title;
@@ -150,8 +152,8 @@ function wpc_online_get_breadcrumbs_html() {
 	 */
 	$breadcrumbs = array(
 		array(
-			'url'   => get_bloginfo( 'url' ),
-			'label' => __( 'Home', 'wpc-online' ),
+			'url'   => '/',
+			'label' => __( 'Home', 'wpcampus' ),
 		),
 	);
 
@@ -283,9 +285,9 @@ function wpc_online_print_coc() {
 function wpc_online_filter_post_type_link( $post_link, $post, $leavename, $sample ) {
 
 	if ( 8 == $post->ID ) {
-		return get_bloginfo( 'url' ) . '/watch/room-1/';
+		return '/watch/room-1/';
 	} elseif ( 10 == $post->ID ) {
-		return get_bloginfo( 'url' ) . '/watch/room-2/';
+		return '/watch/room-2/';
 	}
 
 	return $post_link;

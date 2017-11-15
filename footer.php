@@ -6,7 +6,7 @@ $theme_dir = trailingslashit( get_stylesheet_directory_uri() );
 				?>
 				<div id="wpc-online-subscribe">
 					<div class="inside">
-						<h2><?php printf( __( 'Subscribe to the %s mailing list', 'wpc-online' ), 'WPCampus' ); ?></h2>
+						<h2><?php printf( __( 'Subscribe to the %s mailing list', 'wpcampus' ), 'WPCampus' ); ?></h2>
 						<?php echo do_shortcode( '[gravityform id="2" title="false" description="false"]' ); ?>
 					</div>
 				</div>

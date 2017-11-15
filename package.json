@@ -4,7 +4,7 @@
   "description": "The WordPress theme for the WPCampus Online website.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bamadesigner/wpcampus-online-theme.git"
+    "url": "git+https://github.com/wpcampus/wpcampus-online-theme.git"
   },
   "scripts": {
     "postinstall": "gulp"
@@ -12,9 +12,9 @@
   "author": "WPCampus",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/bamadesigner/wpcampus-online-theme/issues"
+    "url": "https://github.com/wpcampus/wpcampus-online-theme/issues"
   },
-  "homepage": "https://github.com/bamadesigner/wpcampus-online-theme#readme",
+  "homepage": "https://github.com/wpcampus/wpcampus-online-theme#readme",
   "devDependencies": {
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
