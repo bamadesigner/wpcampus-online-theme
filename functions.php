@@ -343,7 +343,7 @@ function wpc_online_print_social_media_icons( $color = 'black' ) {
  * Decide which main callout to print.
  */
 function wpcampus_online_print_main_callout() {
-	wpcampus_online_print_2017_callout();
+	//wpcampus_online_print_2017_callout();
 }
 
 /**

@@ -77,3 +77,8 @@ $theme_dir = trailingslashit( get_stylesheet_directory_uri() );
 
 		?>
 		<div id="wpc-online-main">
+			<div id="wpc-online-content">
+				<div class="inside">
+					<?php
+
+					wpcampus_online_print_main_callout();

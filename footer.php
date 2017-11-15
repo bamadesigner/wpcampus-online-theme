@@ -3,7 +3,11 @@
 // Get the theme directory.
 $theme_dir = trailingslashit( get_stylesheet_directory_uri() );
 
-				?>
+wpc_online_print_coc();
+
+?>
+					</div><!-- .inside -->
+				</div><!-- #wpc-online-content -->
 				<div id="wpc-online-subscribe">
 					<div class="inside">
 						<h2><?php printf( __( 'Subscribe to the %s mailing list', 'wpcampus' ), 'WPCampus' ); ?></h2>
