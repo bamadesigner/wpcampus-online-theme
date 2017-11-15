@@ -26,9 +26,6 @@
 				$nav_container.removeClass( 'open-menu' );
 				$nav_social.fadeIn();
 			});
-
 		}
-
 	});
-
 })( jQuery );
