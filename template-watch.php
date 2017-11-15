@@ -15,7 +15,7 @@ $crowdcast_embed_src = get_post_meta( $post->ID, 'crowdcast_embed_src', true );
 ?>
 <div id="wpc-online-content" style="padding-top:10px;">
 	<div class="inside">
-		<div class="panel gray"><strong>This conference is a free event.</strong> WPCampus Online will be using <a href="https://www.crowdcast.io/" target="_blank">crowdcast</a> to stream live, virtual sessions. To join the conference, you'll simply need to visit this website on Monday, January 23 and setup an account with crowdcast.</div>
+		<div class="panel gray"><strong>This conference is a free event.</strong> WPCampus Online will be using <a href="https://www.crowdcast.io/" target="_blank">crowdcast</a> to stream live, virtual sessions. To join the conference, you'll simply need to visit this website on Tuesday, January 30, 2018, and setup an account with crowdcast.</div>
 		<div class="panel blue"><a href="http://docs.crowdcast.io/faq/what-are-the-compatible-devices" target="_blank">View crowdcast's list of compatible devices</a> to make sure your browser is able to view the event.</div>
 	</div>
 	<?php

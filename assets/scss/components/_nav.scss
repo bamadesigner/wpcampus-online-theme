@@ -92,6 +92,26 @@
 					text-decoration: none;
 					line-height: $wpc-nav-height;
 					padding: 0 $wpc-nav-item-side-padding;
+
+					&:hover {
+						background: rgba(#000,0.05);
+					}
+				}
+
+				ul {
+					margin: 0;
+
+					li {
+
+						a {
+							padding-left: ($wpc-nav-item-side-padding*2);
+						}
+					}
+				}
+
+				&.menu-item-blue {
+					background: #1159bd;
+					color: #fff;
 				}
 			}
 		}
@@ -191,6 +211,7 @@
 	}
 
 	@media screen and (min-width: $wpc-nav-full) {
+		height: $wpc-nav-height !important;
 
 		.inside {
 			padding: 0 40px;
@@ -208,6 +229,35 @@
 
 				li {
 					float: left;
+					position: relative;
+					
+					ul.sub-menu {
+						display: none;
+						background: $wpc-nav-bg-color;
+						position: absolute;
+						left: 0;
+						top: 98%;
+						min-width: 100%;
+						text-align: center;
+						border: 0;
+						padding: 0;
+
+						li {
+							float: none;
+
+							a {
+								padding: 0;
+							}
+						}
+					}
+
+					&:hover {
+
+						ul.sub-menu {
+							display: block;
+							z-index: 10;
+						}
+					}
 				}
 			}
 		}
