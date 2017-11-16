@@ -1,22 +1,23 @@
 {
-    "name": "wpcampus/wpcampus-online-theme",
-	"description": "The WordPress theme for the WPCampus Online website.",
-	"type": "wordpress-theme",
-	"license": "GPL2.0+",
-    "authors": [
-        {
-            "name": "WPCampus",
-            "email": "code@wpcampus.org"
-        }
+  "name": "wpcampus/wpcampus-online-theme",
+  "description": "The WordPress theme for the WPCampus Online website.",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "WPCampus",
+      "email": "code@wpcampus.org"
+    }
+  ],
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "wp-coding-standards/wpcs": "*"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "./vendor/bin/phpcs --config-set bin vendor/bin/phpcs",
+      "./vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs"
     ],
-	"require-dev": {
-		"squizlabs/php_codesniffer": "*",
-		"wp-coding-standards/wpcs": "*"
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"./vendor/bin/phpcs --config-set bin vendor/bin/phpcs",
-			"./vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs"
-		]
-	}
+    "sniff": "vendor/bin/phpcs --runtime-set installed_paths vendor/wp-coding-standards/wpcs -p ./ --standard=WordPress-Core --report=full --extensions=php --ignore=*/vendor/*,*/node_modules/*"
+  }
 }
