@@ -46,7 +46,9 @@ $crowdcast_embed_src = get_post_meta( $post->ID, 'crowdcast_embed_src', true );
 
 	endif;
 
-	wpc_online_print_coc();
+	if ( function_exists( 'wpcampus_print_code_of_conduct_message' ) ) {
+		wpcampus_print_code_of_conduct_message();
+	}
 
 	?>
 </div>

@@ -269,18 +269,6 @@ function wpc_online_get_breadcrumbs_html() {
 	return $breadcrumbs_html;
 }
 
-// Print the code of conduct message.
-function wpc_online_print_coc() {
-
-	?>
-	<div id="wpc-online-coc">
-		<h2>Code of Conduct</h2>
-		<p>WPCampus seeks to provide a friendly, safe environment in which all participants can engage in productive dialogue, sharing, and learning with each other in an atmosphere of mutual respect. In order to promote such an environment, we require all participants to adhere to our <a href="https://wpcampus.org/code-of-conduct/">code of conduct</a>, which applies to all community interaction and events.</p>
-	</div>
-	<?php
-
-}
-
 // Filter the locations permalink.
 function wpc_online_filter_post_type_link( $post_link, $post, $leavename, $sample ) {
 

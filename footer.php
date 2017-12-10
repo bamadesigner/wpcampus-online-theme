@@ -3,7 +3,9 @@
 // Get the theme directory.
 $theme_dir = trailingslashit( get_stylesheet_directory_uri() );
 
-wpc_online_print_coc();
+if ( function_exists( 'wpcampus_print_code_of_conduct_message' ) ) {
+	wpcampus_print_code_of_conduct_message();
+}
 
 ?>
 					</div><!-- .inside -->
