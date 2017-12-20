@@ -186,8 +186,15 @@ img {
 
 #wpc-code-of-conduct {
 	border-top: 1px solid rgba(0,0,0,0.1);
-	margin-top: 40px;
+	margin-top: 30px;
 	padding-top: 30px;
+
+	.container-title {
+		font-size: 1.1em;
+		font-weight: 500;
+		margin: 0;
+		text-transform: uppercase;
+	}
 
 	#conference-schedule-container + &,
 	#wpc-crowdcast-schedule + & {

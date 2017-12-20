@@ -76,7 +76,7 @@ add_action( 'login_head', 'wpc_online_add_favicons' );
  * Enqueue front styles and scripts.
  */
 function wpc_online_enqueue_styles_scripts() {
-	$wpcampus_version = '0.21';
+	$wpcampus_version = '0.22';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
