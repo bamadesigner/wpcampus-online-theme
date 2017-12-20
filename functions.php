@@ -76,20 +76,16 @@ add_action( 'login_head', 'wpc_online_add_favicons' );
  * Enqueue front styles and scripts.
  */
 function wpc_online_enqueue_styles_scripts() {
-	$wpcampus_version = '0.20';
+	$wpcampus_version = '0.21';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
 
-	/*
-	 * Register our fonts.
-	 *
-	 * @TODO make sure we remove what we're not using.
-	 */
-	//wp_register_style( 'wpc-online-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600' );
+	// Register our fonts.
+	wp_register_style( 'wpc-online-fonts', 'https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600' );
 
 	// Add our main stylesheet.
-	wp_enqueue_style( 'wpc-online', $wpcampus_dir . 'assets/css/styles.css', array(), $wpcampus_version );
+	wp_enqueue_style( 'wpc-online', $wpcampus_dir . 'assets/css/styles.css', array( 'wpc-online-fonts' ), $wpcampus_version );
 
 	// Add our main script.
 	wp_enqueue_script( 'wpc-online', $wpcampus_dir . 'assets/js/wpcampus-online.min.js', array( 'jquery' ), $wpcampus_version, true );
