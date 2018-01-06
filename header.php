@@ -77,7 +77,7 @@ $theme_dir = trailingslashit( get_stylesheet_directory_uri() );
 
 		?>
 		<div id="wpc-online-main">
-			<div id="wpc-online-content">
+			<div id="wpc-online-content" role="main">
 				<div class="inside">
 					<?php
 
