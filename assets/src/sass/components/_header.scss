@@ -1,0 +1,322 @@
+#wpc-header {
+	background: $header-bg;
+	color: $header-color;
+	padding: $wpc-container-padding-vert $wpc-container-padding-horiz;
+
+	a {
+		display: block;
+		color: inherit;
+	}
+	
+	.wpc-logo {
+
+		img {
+			display: block;
+			width: auto;
+			height: $header-max-logo-height;
+			margin: 0;
+		}
+	}
+	
+	.wpc-menu-container {
+
+		ul.wpc-menu {
+			display: none;
+			margin: 0;
+			border: 0;
+			padding: 0;
+		}
+		
+		.social-media-icons {
+			display: none;
+		}
+
+		.wpc-toggle-menu {
+			display: block;
+			width: auto;
+			background: transparent;
+			cursor: pointer;
+			position: relative;
+			border: 0;
+			margin: 0 0 0 $header-toggle-menu-margin-left;
+			padding: 0;
+			text-align: right;
+			color: #fff;
+			font-weight: 300;
+			font-size: 20px;
+			letter-spacing: 1px;
+
+			.wpc-open-menu-label,
+			.wpc-close-menu-label {
+				text-transform: uppercase;
+			}
+
+			.wpc-close-menu-label {
+				display: none;
+			}
+		}
+
+		@media screen and (min-width: $header-menu-breakpoint) {
+
+			ul.wpc-menu {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: end;
+				align-items: center;
+				align-content: center;
+				list-style: none;
+				font-size: 1.1rem;
+				line-height: 1;
+
+				a {
+					text-decoration: none;
+					padding: $header-menu-open-item-padding-vert $header-menu-open-item-padding-horiz;
+				}
+				
+				ul.sub-menu {
+					display: none;
+				}
+
+				> li {
+					margin: 0 0 0 $header-menu-open-item-margin-left;
+					border: 0;
+					padding: 0;
+					text-transform: uppercase;
+					font-weight: 300;
+
+					&.current-menu-item > a,
+					&.current-menu-parent > a,
+					&:hover > a,
+					> a:focus {
+						background: rgba( #fff, 0.1 );
+					}
+
+					&.menu-item-has-children {
+						position: relative;
+
+						> ul.sub-menu {
+							min-width: 115%;
+							position: absolute;
+							left: 0;
+							top: 100%;
+							margin: 0;
+							border: 0;
+							padding: 0;
+							list-style: none;
+
+							> li {
+								background: #fff;
+								border-top: 2px solid $wpc-dark-blue;
+								color: $wpc-dark-blue;
+								font-weight: 400;
+							}
+						}
+
+						&.menu-item-21 {
+							> ul.sub-menu {
+								min-width: 150%;
+							}
+						}
+
+						&.has-focus,
+						&:hover {
+							background: rgba( #fff, 0.1 );
+
+							> a {
+								background: none;
+							}
+
+							> ul.sub-menu {
+								display: block;
+
+								> li > a {
+
+									&:focus,
+									&:hover {
+										background: rgba( $link-color, 0.2 );
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			.social-media-icons {
+				display: none;
+			}
+
+			.wpc-toggle-menu {
+				display: none !important;
+			}
+		}
+
+		@media screen and (min-width: $wpc-container-max-width) {
+
+			ul.wpc-menu {
+
+				li {
+					a {
+						padding-top: $header-menu-max-item-padding-vert;
+						padding-bottom: $header-menu-max-item-padding-vert;
+					}
+				}
+			}
+		}
+	}
+
+	.wpc-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		align-content: center;
+	}
+
+	@media screen and (max-width: $header-menu-breakpoint) {
+
+		&.wpc-menu-open {
+			display: block;
+			background: $header-menu-open-bg;
+			position: absolute;
+			right: 0;
+			top: 0;
+			max-width: none;
+			width: 100%;
+			height: 100%;
+			z-index: 1000;
+			padding: $header-menu-open-container-padding;
+
+			.wpc-logo {
+				margin-bottom: $header-menu-open-logo-margin-bottom;
+				margin-right: $header-menu-open-logo-margin-right;
+
+				a {
+					height: $header-menu-open-logo-height;
+				}
+
+				img {
+					height: $header-menu-open-logo-height;
+				}
+			}
+
+			.social-media-icons {
+				display: inline-block;
+				margin: 30px 0 0;
+				padding: 0;
+				border: 0;
+				text-align: center;
+				overflow: visible;
+
+				li {
+					display: block;
+					float: left;
+					list-style: none;
+					margin: 0 18px 0 0;
+					padding: 0;
+				}
+
+				svg {
+					width: auto;
+					height: 35px;
+					vertical-align: baseline;
+					fill: $header-menu-open-color;
+				}
+
+				a {
+					display: block;
+					line-height: 35px;
+				}
+			}
+
+			ul.wpc-menu {
+				display: block !important;
+				font-size: $header-menu-open-font-size;
+				line-height: $header-menu-open-line-height;
+
+				a {
+					padding: $header-menu-open-menu-item-padding-vert 0;
+					text-decoration: none;
+				}
+
+				li {
+					display: block;
+					clear: both;
+
+					&.highlight {
+						background: $header-menu-open-highlight-bg;
+						color: $header-menu-open-highlight-color;
+						margin-top: $header-menu-open-highlight-margin-top;
+
+						a {
+							padding: $header-menu-open-highlight-padding-vert $header-menu-open-highlight-padding-horiz;
+						}
+					}
+				}
+				
+				ul {
+					margin: 0;
+					
+					&.sub-menu {
+						margin: 0;
+						padding: 0 0 0 20px;
+						font-size: 1.5rem;
+						font-weight: 300;
+						text-transform: uppercase;
+					}
+				}
+			}
+
+			.wpc-toggle-menu {
+				position: fixed;
+				right: $header-toggle-bar-open-right;
+				top: $header-toggle-bar-open-top;
+				/*width: $wpc-toggle-bar-open-width;
+				height: $wpc-toggle-bar-open-width;*/
+
+				.wpc-open-menu-label {
+					display: none;
+				}
+
+				.wpc-close-menu-label {
+					display: block;
+				}
+			}
+
+			.wpc-container {
+				display: block;
+				max-width: none;
+			}
+		}
+	}
+}
+
+#wpc-subheader {
+	background: $wpc-orange;
+	text-align: left;
+	color: #fff;
+	padding: 15px 20px;
+	font-size: 1rem;
+	font-weight: 300;
+
+	.date {
+		font-size: 1.1rem;
+		text-transform: uppercase;
+	}
+
+	.wpc-container-item {
+		display: inline;
+
+		& + .wpc-container-item {
+			margin-left: 7px;
+		}
+	}
+
+	@media screen and (min-width: 740px) {
+		.wpc-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			align-content: center;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+// BASE COLORS
+$wpc-royal-blue: #1159bd;
+$wpc-dark-blue: #2e3641;
+$wpc-orange: #A76739;
+$wpc-red: #851822;
+$wpc-gray: #444;
+
+// DESIGN COLORS
+$link-color: #0077b5;
+
+// Layout
+$wpc-container-max-width: 920px;
+$wpc-container-padding-vert: 30px;
+$wpc-container-padding-horiz: 20px;
+$wpc-element-margin-vert: 1.5rem;
+
+// Header
+$header-bg: $wpc-dark-blue;
+$header-color: #fff;
+$header-max-logo-height: 65px;
+
+$header-menu-breakpoint: 600px;
+$header-menu-open-item-margin-left: 22px;
+$header-menu-open-item-padding-vert: 7px;
+$header-menu-open-item-padding-horiz: 8px;
+$header-menu-max-item-padding-vert: 8px;
+
+$header-toggle-menu-margin-left: 30px;
+
+$header-menu-open-bg: #2e3641;
+$header-menu-open-container-padding: 20px;
+$header-menu-open-logo-height: 45px;
+$header-menu-open-logo-margin-bottom: 20px;
+$header-menu-open-logo-margin-right: 90px;
+$header-menu-open-font-size: 2rem;
+$header-menu-open-line-height: 1.4;
+$header-menu-open-menu-item-padding-vert: 8px;
+$header-menu-open-color: #fff;
+
+$header-menu-open-highlight-bg: #fff;
+$header-menu-open-highlight-color: #222;
+$header-menu-open-highlight-margin-top: 15px;
+$header-menu-open-highlight-padding-vert: 5px;
+$header-menu-open-highlight-padding-horiz: 10px;
+
+$header-toggle-bar-open-right: 25px;
+$header-toggle-bar-open-top: 25px;

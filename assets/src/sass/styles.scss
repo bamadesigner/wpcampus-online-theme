@@ -1,0 +1,52 @@
+@import "settings";
+@import "mixins";
+
+a {
+	color: $link-color;
+}
+
+button,
+.button {
+	background-color: $link-color;
+	color: #fff;
+
+	&:focus,
+	&:hover {
+		background-color: darken( $link-color, 10% );
+	}
+
+	&.blue {
+		background-color: $wpc-dark-blue;
+		color: #fff;
+
+		&:focus,
+		&:hover {
+			background-color: darken( $wpc-dark-blue, 10% );
+		}
+	}
+
+	&.red {
+		background-color: $wpc-red;
+		color: #fff;
+
+		&:focus,
+		&:hover {
+			background-color: darken( $wpc-red, 10% );
+		}
+	}
+
+	&.gray {
+		background-color: $wpc-gray;
+		color: #fff;
+
+		&:focus,
+		&:hover {
+			background-color: darken( $wpc-gray, 10% );
+		}
+	}
+}
+
+// Include our components
+@import "components/header";
+@import "components/body";
+@import "components/footer";
