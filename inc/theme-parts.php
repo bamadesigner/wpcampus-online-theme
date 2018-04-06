@@ -35,7 +35,7 @@ add_action( 'wpc_add_to_header', 'wpc_online_print_header', 0 );
 
 function wpc_online_print_subheader() {
 	?>
-	<div id="wpc-subheader">
+	<div id="wpc-subheader" role="complementary">
 		<div class="wpc-container">
 			<div class="wpc-container-item tagline"><?php printf( __( '(FREE) Virtual Conference for %s in Higher Education', 'wpcampus-online' ), 'WordPress' ); ?></div>
 			<div class="wpc-container-item date"><strong>January 30, 2018&nbsp;&nbsp;/&nbsp;&nbsp;9 a.m. CST</strong></div>
