@@ -130,9 +130,10 @@ add_action( 'get_header', 'wpc_online_enable_watch_videos' );
  */
 function wpc_online_print_watch_videos_content( $content ) {
 	if ( function_exists( 'wpcampus_print_watch_videos' ) ) {
-		wpcampus_print_watch_videos( array(
-			'playlist'   => 'wpcampus-online-2017,wpcampus-online-2018',
-			'show_event' => true,
+		wpcampus_print_watch_videos( 'wpc-videos', array(
+			'playlist'     => 'wpcampus-online-2017,wpcampus-online-2018',
+			'show_event'   => true,
+			'show_filters' => false,
 		));
 	}
 }
