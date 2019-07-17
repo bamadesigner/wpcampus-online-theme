@@ -6,12 +6,10 @@ const minify = require('gulp-minify');
 const notify = require('gulp-notify');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
-const shell = require('gulp-shell');
 
 // Define the source paths for each file type.
 const src = {
 	js: ['assets/src/js/**/*'],
-	php: ['**/*.php','!vendor/**','!node_modules/**'],
 	sass: ['assets/src/sass/**/*','!assets/src/sass/components']
 };
 
@@ -22,14 +20,13 @@ const dest = {
 };
 
 // Take care of SASS.
-gulp.task('sass', function() {
+gulp.task('sass', function(done) {
 	return gulp.src(src.sass)
 		.pipe(sass({
 			outputStyle: 'expanded'
 		}).on('error', sass.logError))
 		.pipe(mergeMediaQueries())
 		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
 			cascade: false
 		}))
 		.pipe(cleanCSS({
@@ -39,12 +36,13 @@ gulp.task('sass', function() {
 			suffix: '.min'
 		}))
 		.pipe(gulp.dest(dest.sass))
-		.pipe(notify('WPC Online SASS compiled'));
+		.pipe(notify('WPC Online SASS compiled'))
+		.on('end',done);
 });
 
 // Take care of JS.
-gulp.task('js',function() {
-	gulp.src(src.js)
+gulp.task('js',function(done) {
+	return gulp.src(src.js)
 		.pipe(minify({
 			mangle: false,
 			noSource: true,
@@ -53,35 +51,19 @@ gulp.task('js',function() {
 			}
 		}))
 		.pipe(gulp.dest(dest.js))
-		.pipe(notify('WPC Online JS compiled'));
+		.pipe(notify('WPC Online JS compiled'))
+		.on('end',done);
 });
-
-// "Sniff" our PHP.
-gulp.task('php', function() {
-	// TODO: Clean up. Want to run command and show notify for sniff errors.
-	return gulp.src('functions.php', {read: false})
-		.pipe(shell(['composer sniff'], {
-			ignoreErrors: true,
-			verbose: false
-		}))
-		.pipe(notify('WPC Online PHP sniffed'), {
-			onLast: true,
-			emitError: true
-		});
-});
-
-// Test our files.
-gulp.task('test',['php']);
 
 // Compile all the things.
-gulp.task('compile',['sass','js']);
-
-// I've got my eyes on you(r file changes).
-gulp.task('watch',function() {
-	gulp.watch(src.js,['js']);
-	gulp.watch(src.php,['php']);
-	gulp.watch(src.sass,['sass']);
-});
+gulp.task('compile',gulp.series('sass','js'));
 
 // Let's get this party started.
-gulp.task('default',['compile','test']);
+gulp.task('default', gulp.series('compile'));
+
+// I've got my eyes on you(r file changes).
+gulp.task('watch', gulp.series('default',function(done) {
+	gulp.watch(src.js, gulp.series('js'));
+	gulp.watch(src.sass,gulp.series('sass'));
+	return done();
+}));
