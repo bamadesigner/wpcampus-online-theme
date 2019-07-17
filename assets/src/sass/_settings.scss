@@ -1,12 +1,14 @@
 // BASE COLORS
 $wpc-royal-blue: #1159bd;
 $wpc-dark-blue: #2e3641;
+$wpc-light-blue: #e4eaf4;
 $wpc-orange: #A76739;
 $wpc-red: #851822;
 $wpc-gray: #444;
+$wpc-light-gray: rgba(#000,.05);
 
 // DESIGN COLORS
-$link-color: #0077b5;
+$link-color: $wpc-royal-blue; //#0077b5;
 
 // Layout
 $wpc-container-max-width: 920px;
@@ -20,7 +22,7 @@ $header-color: #fff;
 $header-max-logo-height: 65px;
 
 $header-menu-breakpoint: 600px;
-$header-menu-open-item-margin-left: 22px;
+$header-menu-open-item-margin-left: 10px;
 $header-menu-open-item-padding-vert: 7px;
 $header-menu-open-item-padding-horiz: 8px;
 $header-menu-max-item-padding-vert: 8px;

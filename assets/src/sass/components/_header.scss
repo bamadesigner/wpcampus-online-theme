@@ -16,6 +16,13 @@
 			height: $header-max-logo-height;
 			margin: 0;
 		}
+
+		@media screen and (min-width: $header-menu-breakpoint) {
+			flex-basis: 230px;
+			width: 230px;
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
 	}
 	
 	.wpc-menu-container {
@@ -59,14 +66,17 @@
 		@media screen and (min-width: $header-menu-breakpoint) {
 
 			ul.wpc-menu {
+				max-width: 500px;
 				display: flex;
 				flex-wrap: wrap;
-				justify-content: end;
 				align-items: center;
 				align-content: center;
+				justify-content: flex-end;
 				list-style: none;
 				font-size: 1.1rem;
 				line-height: 1;
+				margin: 0;
+				padding: 0;
 
 				a {
 					text-decoration: none;

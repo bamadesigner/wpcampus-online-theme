@@ -34,10 +34,19 @@ function wpc_online_print_header() {
 add_action( 'wpc_add_to_header', 'wpc_online_print_header', 0 );
 
 function wpc_online_print_subheader() {
+
+	if ( is_page( 'watch' ) ) {
+
+		$room = wpc_online_get_watch_room();
+		if ( $room ) {
+			return;
+		}
+	}
+
 	?>
 	<div id="wpc-subheader" role="complementary">
 		<div class="wpc-container">
-			<div class="wpc-container-item tagline"><?php printf( __( '(FREE) Virtual Conference for %s in Higher Education', 'wpcampus-online' ), 'WordPress' ); ?></div>
+			<div class="wpc-container-item tagline">A free, virtual conference for accessibility and WordPress in Higher Education</div>
 			<div class="wpc-container-item date"><strong>January 31, 2019</strong></div>
 		</div>
 	</div>
@@ -81,18 +90,15 @@ add_filter( 'wpcampus_post_type_archive_link', 'wpc_online_filter_post_type_arch
  */
 function wpcampus_online_filter_page_title( $title ) {
 
-	if ( is_page( 'watch' ) ) {
+	/*if ( is_page( 'watch' ) ) {
 
 		// Are we in a particular room?
-		$room = get_query_var( 'room' );
-		if ( ! in_array( $room, array( 1, 2 ) ) ) {
-			$room = false;
-		}
+		$room = wpc_online_get_watch_room();
 
 		if ( $room ) {
-			$title = sprintf( __( 'Watch Room %d', 'wpcampus-online' ), $room );
+			$title = sprintf( __( 'Room %d', 'wpcampus-online' ), $room );
 		}
-	}
+	}*/
 
 	/*if ( is_page( 'schedule' ) ) {
 		return $title . ' <span class="button wpc-schedule-action" role="button">' . __( 'Go to current session', 'wpcampus-online' ) . '</span>';
@@ -114,6 +120,24 @@ function wpcampus_online_filter_page_title( $title ) {
 add_filter( 'wpcampus_page_title', 'wpcampus_online_filter_page_title' );
 
 /**
+ *
+ */
+function wpc_online_add_pre_message() {
+
+	if ( is_page( array( 'watch'. 'sponsors', 'thank-you', 'archive' ) ) ) {
+		return;
+	}
+
+	?>
+	<div class="panel light-blue center">
+		<p style="font-size:130%;margin: 0 0 0.5rem 0;"><strong>WPCampus Online 2019 has come to an end</strong>
+		<p style="margin:0;"><a href="/thank-you/">Thank you</a> to our wonderful organizers, volunteers, speakers, and sponsors for their support. All sessions were recorded and will be uploaded as soon as possible. In the meantime, you can <a href="/schedule/">view slides on the schedule</a> and <a href="/watch/">video recordings</a> from previous WPCampus Online events.</p>
+	</div>
+	<?php
+}
+//add_action( 'wpcampus_before_article', 'wpc_online_add_pre_message' );
+
+/**
  * Adds post-event messaging to schedule pages.
  *
  * Adds after title at priority 10.
@@ -128,4 +152,4 @@ function wpcampus_online_add_schedule_post_message() {
 
 	endif;
 }
-add_action( 'wpc_add_before_content', 'wpcampus_online_add_schedule_post_message', 20 );
+//add_action( 'wpc_add_before_content', 'wpcampus_online_add_schedule_post_message', 20 );

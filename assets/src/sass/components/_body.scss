@@ -66,7 +66,40 @@ body.page-watch {
 	}
 }
 
+body.page-watch-main {
+
+	.conf-sch-container {
+		border-top: 1px solid rgba(0,0,0,.1);
+	}
+
+	.wpc-watch-container {
+
+		&.sponsors,
+		&.speakers,
+		&.schedule {
+			margin-top: 2rem;
+		}
+	}
+}
+
 body.page-watch-room {
+
+	#wpc-network-banner .wpc-container,
+	.wpc-container {
+		max-width: none;
+	}
+
+	#wpc-network-banner .wpc-container,
+	#wpc-header .wpc-container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	@media screen and (min-width: 600px) {
+		#wpc-header .wpc-menu-container ul.wpc-menu {
+			max-width: none;
+		}
+	}
 
 	#wpc-main {
 
@@ -76,18 +109,39 @@ body.page-watch-room {
 	}
 
 	#wpc-content {
+		padding-top: 0;
+		padding-right: 0;
+		padding-left: 0;
 
 		h1 {
 			margin-top: 0;
 		}
 
 		.wpc-watch-container {
-			@include imitate-container();
+
+			&.schedule,
+			&.speakers,
+			&.sponsors {
+				@include imitate-container();
+				padding-left: 30px;
+				padding-right: 30px;
+
+				@media screen and (min-width: 600px) {
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
 		}
 
 		#wpc-watch-other-room {
 			display: block;
 			margin: .8rem 0 1.3rem 0;
+		}
+
+		.wpc-mc-signup {
+			max-width: 920px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 		@media screen and (min-width: 600px) {
@@ -107,7 +161,7 @@ body.page-watch-room {
 	}
 }
 
-#wpc-watch-buttons {
+.wpc-watch-buttons {
 	overflow: auto;
 	margin: 0 0 1.6rem 0;
 
@@ -116,7 +170,7 @@ body.page-watch-room {
 
 		a {
 			display: block;
-			background-color: $link-color;
+			background-color: $wpc-royal-blue;
 			color: #fff;
 			text-align: center;
 			font-size: 2rem;
@@ -130,7 +184,7 @@ body.page-watch-room {
 
 			&:focus,
 			&:hover {
-				background: darken( $link-color, 10% );
+				background: darken( $wpc-royal-blue, 10% );
 			}
 		}
 
@@ -178,31 +232,312 @@ body.page-watch-room {
 				}
 			}
 
-			&:nth-child(odd) {
+			&:first-child {
 				padding-left: 0;
 			}
 
-			&:nth-child(even) {
+			&:last-child {
 				padding-right: 0;
 			}
 		}
 	}
 }
 
-#wpc-crowdcast {
-	margin: 1.6rem 0 2rem 0;
+.wpc-watch-sponsors {
+	background: $wpc-light-blue;
+	padding: 20px;
+	margin: 0 0 1rem 0;
+
+	img, a {
+		display: block;
+		margin: 0;
+	}
+
+	.wpc-watch-sponsor {
+		background: #fff;
+		padding: 20px;
+
+		&.pantheon {
+			background: $wpc-dark-blue;
+			padding: 0 8px 8px;
+
+			.sponsor-label {
+				font-weight: bold;
+				margin: 0;
+				text-align: center;
+				font-size: 115%;
+				background: $wpc-dark-blue;
+				color: #fff;
+				padding: 1rem;
+			}
+
+			a {
+				background: #fff;
+				padding: 30px;
+			}
+		}
+
+		&.wpexplorer {
+
+			img {
+				max-height: 300px;
+			}
+		}
+	}
+
+	.wpc-watch-sponsor-row {
+		display: flex;
+		align-items: stretch;
+
+		.wpc-watch-sponsor {
+			display: flex;
+			align-items: center;
+			margin: 1rem 0.5rem 0;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+$watch-item-margin: 8px;
+$watch-iframe-height: 700px;
+#wpc-watch-area {
+	background: #000;
+	padding: 1rem;
+	margin: 0 0 2rem 0;
 
 	iframe {
 		display: block;
 		width: 100%;
-		height: 800px;
+		height: $watch-iframe-height;
 		border: 0;
 		margin: 0;
 		padding: 0;
+
+		&.wpc-live-captions {
+			height: 300px;
+		}
+
+		&.wpc-live-chat {
+			//height: 100%;
+		}
+	}
+
+	div.wpc-live-captions {
+		border: 2px solid rgba(255,255,255,.5);
+		margin: $watch-item-margin 0 0 0;
+	}
+
+	.wpc-live-chat-message {
+		background: $wpc-light-blue;
+		padding: 1rem;
+
+		ul, ol {
+			margin: 0;
+		}
+	}
+
+	.wpc-live-captions-actions {
+		margin: $watch-item-margin 0 0;
+
+		.wpc-live-captions-open {
+			background: $wpc-royal-blue;
+			border-radius: 0;
+			height: auto;
+			color: #fff;
+			line-height: 45px;
+			text-decoration: underline;
+
+			&:hover,
+			&:focus {
+				background: darken( $wpc-royal-blue, 10% );
+				color: #fff;
+			}
+		}
+	}
+
+	.wpc-live-captioning-sponsor {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #fff;
+		margin: $watch-item-margin 0 0;
+		padding: 20px;
+
+		.sponsor-label {
+			font-weight: bold;
+			font-size: 115%;
+			color: #000;
+			margin: 0 1rem 0 0;
+		}
+
+		img {
+			max-height: 100px;
+			margin: 0;
+		}
+
+		a {
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	@media screen and (min-width: 600px) {
+
+		.wpc-live-watch {
+			display: flex;
+
+			div.wpc-live-video {
+				flex-basis: 75%;
+			}
+
+			div.wpc-live-chat {
+				flex: 1;
+				margin: 0 0 0 $watch-item-margin;
+			}
+		}
 	}
 }
 
-#wpc-crowdcast-schedule {
+#wpc-watch-room {
+
+	.conf-schedule-speakers {
+		margin: 0 0 1rem 0;
+	}
+
+	.wpc-live-header {
+		background: $wpc-light-blue;
+		color: #000;
+
+		.header-button {
+			display: block;
+			width: auto;
+			background: $wpc-royal-blue;
+			color: #fff;
+			margin: 0;
+			padding: 15px 20px;
+			text-align: center;
+			border-radius: 0;
+			height: auto;
+			line-height: inherit;
+			transition: background-color 1s ease;
+
+			&:hover,
+			&:focus {
+				background: darken( $wpc-royal-blue, 10% );
+			}
+
+			&.refresh-button {
+				background: url('../../images/refresh.png') center center no-repeat $wpc-orange;
+				background-size: auto 50%;
+				min-width: 75px;
+				min-height: 75px;
+
+				span {
+					@include for-screen-reader;
+				}
+
+				&:hover,
+				&:focus {
+					background-color: darken( $wpc-orange, 10% );
+				}
+			}
+		}
+
+		.wpc-live-headers {
+			padding: 20px 30px;
+
+			> * {
+				margin: 0;
+				font-size: 2rem;
+				line-height: 1.2;
+			}
+		}
+
+		@media screen and (min-width: 600px) {
+			display: flex;
+			align-items: stretch;
+
+			> * {
+				display: flex;
+				align-items: center;
+			}
+
+			h2 {
+				flex: 1;
+			}
+
+			.wpc-live-headers {
+				display: flex;
+				flex: 1;
+
+				> * {
+					display: flex;
+					align-items: center;
+				}
+
+				h2 {
+					margin: 0 0 0 1rem;
+				}
+			}
+
+			.header-button {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+
+	.wpc-live-next {
+		background: rgba( #900, 0.05 );
+		color: #000;
+		border-top: 1px solid rgba( $wpc-royal-blue, 0.2 );
+
+		.next-message {
+			margin: 0;
+			padding: 15px 30px;
+			font-weight: bold;
+			text-align: center;
+
+			@media screen and (min-width: 600px) {
+				text-align: left;
+			}
+		}
+	}
+
+	.wpc-live-loading {
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 1s ease;
+	}
+
+	$loading-min-height: 200px;
+	&.loading {
+		min-height: $loading-min-height;
+		position: relative;
+		pointer-events: none;
+
+		.wpc-live-loading {
+			opacity: 1;
+			min-height: $loading-min-height;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: url('../../images/loading.gif') center center no-repeat rgba(#fff,0.8);
+			z-index: 1000;
+		}
+	}
+}
+
+#wpc-live-schedule {
 
 	#wpc-schedule-button {
 		display: block;
@@ -222,7 +557,7 @@ body.page-watch-room {
 		}
 	}
 
-	#conference-schedule-container {
+	.conf-sch-container {
 		clear: both;
 
 		.schedule-header,
