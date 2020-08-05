@@ -1,7 +1,7 @@
 #wpc-header {
 	background: $header-bg;
 	color: $header-color;
-	padding: $wpc-container-padding-vert $wpc-container-padding-horiz;
+	padding: $wpc-container-padding-vert 0;
 
 	a {
 		display: block;
@@ -304,7 +304,7 @@
 	background: $wpc-orange;
 	text-align: left;
 	color: #fff;
-	padding: 15px 20px;
+	padding: 15px 0;
 	font-size: 1rem;
 	font-weight: 300;
 

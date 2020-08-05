@@ -72,7 +72,7 @@ function wpcampus_online_enqueue_theme() {
 	$wpcampus_dir_js  = $wpcampus_dir . 'assets/build/js/';
 
 	// Enqueue the base styles and script.
-	$version = 5;
+	$version = 5.1;
 	wp_enqueue_style( 'wpcampus-online', $wpcampus_dir_css . 'styles.min.css', array( 'wpcampus-parent' ), $version );
 	wp_enqueue_script( 'wpcampus-online', $wpcampus_dir_js . 'wpc-online.min.js', array( 'jquery' ), $version );
 

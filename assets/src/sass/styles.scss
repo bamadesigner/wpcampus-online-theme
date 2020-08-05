@@ -1,6 +1,25 @@
 @import "settings";
 @import "mixins";
 
+#wpc-network-banner {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.wpc-container,
+#wpc-network-banner .wpc-container,
+#wpc-notifications .wpc-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+
+	@media screen and (min-width: 860px) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
 a {
 	color: $link-color;
 }
