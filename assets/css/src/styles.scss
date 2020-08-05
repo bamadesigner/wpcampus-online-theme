@@ -1,5 +1,5 @@
-@import "settings";
-@import "mixins";
+@import "assets/css/src/settings";
+@import "assets/css/src/mixins";
 
 #wpc-network-banner {
 	padding-left: 0;
@@ -66,6 +66,6 @@ button,
 }
 
 // Include our components
-@import "components/header";
-@import "components/body";
-@import "components/footer";
+@import "assets/css/src/components/header";
+@import "assets/css/src/components/body";
+@import "assets/css/src/components/footer";

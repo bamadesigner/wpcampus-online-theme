@@ -9,19 +9,19 @@ const sass = require('gulp-sass');
 
 // Define the source paths for each file type.
 const src = {
-	js: ['assets/src/js/**/*'],
-	sass: ['assets/src/sass/**/*','!assets/src/sass/components']
+	js: ['assets/js/src/**/*'],
+	css: ['assets/css/src/**/*','!assets/css/src/components']
 };
 
 // Define the destination paths for each file type.
 const dest = {
-	js: 'assets/build/js',
-	sass: 'assets/build/css'
+	js: 'assets/js',
+	css: 'assets/css'
 };
 
 // Take care of SASS.
-gulp.task('sass', function(done) {
-	return gulp.src(src.sass)
+gulp.task('css', function(done) {
+	return gulp.src(src.css)
 		.pipe(sass({
 			outputStyle: 'expanded'
 		}).on('error', sass.logError))
@@ -35,7 +35,7 @@ gulp.task('sass', function(done) {
 		.pipe(rename({
 			suffix: '.min'
 		}))
-		.pipe(gulp.dest(dest.sass))
+		.pipe(gulp.dest(dest.css))
 		.pipe(notify('WPC Online SASS compiled'))
 		.on('end',done);
 });
@@ -56,7 +56,7 @@ gulp.task('js',function(done) {
 });
 
 // Compile all the things.
-gulp.task('compile',gulp.series('sass','js'));
+gulp.task('compile',gulp.series('css','js'));
 
 // Let's get this party started.
 gulp.task('default', gulp.series('compile'));
@@ -64,6 +64,6 @@ gulp.task('default', gulp.series('compile'));
 // I've got my eyes on you(r file changes).
 gulp.task('watch', gulp.series('default',function(done) {
 	gulp.watch(src.js, gulp.series('js'));
-	gulp.watch(src.sass,gulp.series('sass'));
+	gulp.watch(src.css,gulp.series('css'));
 	return done();
 }));

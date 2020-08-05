@@ -68,11 +68,11 @@ function wpcampus_online_enqueue_theme() {
 
 	// Set the directories.
 	$wpcampus_dir     = trailingslashit( get_stylesheet_directory_uri() );
-	$wpcampus_dir_css = $wpcampus_dir . 'assets/build/css/';
-	$wpcampus_dir_js  = $wpcampus_dir . 'assets/build/js/';
+	$wpcampus_dir_css = $wpcampus_dir . 'assets/css/';
+	$wpcampus_dir_js  = $wpcampus_dir . 'assets/js/';
 
 	// Enqueue the base styles and script.
-	$version = 5.1;
+	$version = 5.2;
 	wp_enqueue_style( 'wpcampus-online', $wpcampus_dir_css . 'styles.min.css', array( 'wpcampus-parent' ), $version );
 	wp_enqueue_script( 'wpcampus-online', $wpcampus_dir_js . 'wpc-online.min.js', array( 'jquery' ), $version );
 
