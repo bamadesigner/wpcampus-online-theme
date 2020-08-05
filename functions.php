@@ -37,7 +37,7 @@ function wpcampus_online_setup_theme_parts() {
 
 	// Don't print MailChimp signup on the application.
 	if ( is_page( 'call-for-speakers/application' ) ) {
-		remove_action( 'wpc_add_after_content', 'wpcampus_print_mailchimp_signup', 1000 );
+		remove_action( 'wpc_add_before_footer', 'wpcampus_print_mailchimp_signup' );
 	}
 
 	// Disable network notifications on specific pages.
