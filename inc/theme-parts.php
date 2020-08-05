@@ -46,7 +46,7 @@ function wpc_online_print_subheader() {
 	?>
 	<div id="wpc-subheader" role="complementary">
 		<div class="wpc-container">
-			<div class="wpc-container-item tagline">A free, virtual conference for accessibility and WordPress in Higher Education</div>
+			<div class="wpc-container-item tagline">A free, virtual conference for accessibility and WordPress in higher education</div>
 			<div class="wpc-container-item date"><strong>January 31, 2019</strong></div>
 		</div>
 	</div>
