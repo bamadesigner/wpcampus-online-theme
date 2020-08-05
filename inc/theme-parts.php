@@ -108,7 +108,7 @@ function wpcampus_online_filter_page_title( $title ) {
 	if ( is_singular( 'schedule' ) ) {
 		return '<span class="wpc-title-with-action">' . __( 'Schedule', 'wpcampus-online' ) . '</span><a class="wpc-online-action" href="/schedule/">' . __( 'View the full schedule', 'wpcampus-online' ) . '</a>';
 	} elseif ( is_post_type_archive( 'speakers' ) ) {
-		return '<span class="wpc-title-with-action">' . __( 'Speakers', 'wpcampus-online' ) . '</span><a class="wpc-online-action" href="/schedule/">' . __( 'View the full schedule', 'wpcampus-online' ) . '</a>';
+		return '<span class="wpc-title-with-action">' . __( 'Presenters', 'wpcampus-online' ) . '</span><a class="wpc-online-action" href="/schedule/">' . __( 'View the full schedule', 'wpcampus-online' ) . '</a>';
 	} elseif ( is_page( 'watch/1' ) ) {
 		return '<span class="wpc-title-with-action">' . $title . '</span><a class="wpc-online-action join-room-action" href="/watch/2/">' . __( 'Join Room Two', 'wpcampus-online' ) . '</a>';
 	} elseif ( is_page( 'watch/2' ) ) {
